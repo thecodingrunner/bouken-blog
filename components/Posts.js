@@ -3,13 +3,15 @@
 import PostCard from "@/components/PostCard";
 import { useEffect, useState } from "react"
 
-const RecentPosts = () => {
+const Posts = ({ category }) => {
     const [posts, setPosts] = useState(null)
+
+    console.log(category)
 
     useEffect(() => {
   
       async function fetchPosts() {
-        const response = await fetch('/api/post');
+        const response = await fetch(`/api/post/${category}`);
         const result = await response.json();
         console.log(result)
         setPosts(result)
@@ -21,7 +23,7 @@ const RecentPosts = () => {
 
   return (
     <div className="w-screen flex flex-col gap-10 items-center">
-        <h1 className="text-4xl">Recent Posts</h1>
+        <h1 className="text-4xl capitalize">{category} Posts</h1>
         {posts ? (
             <div className="mx-auto w-[70vw] grid grid-cols-3 gap-10">
                 {posts.map(post => (
@@ -35,5 +37,5 @@ const RecentPosts = () => {
   )
 }
 
-export default RecentPosts
+export default Posts
 

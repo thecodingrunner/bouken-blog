@@ -44,7 +44,7 @@ const page = (pageProps) => {
     <div className='back-blue pb-10'>
     {blogPost && (
         <>
-        <main className='relative w-3/4 mx-auto py-20 px-10 flex flex-col mt-[50vh] gap-8 items-center justify-center bg-white z-20'>
+        <main className='relative w-3/4 mx-auto py-20 px-10 flex flex-col mt-[50vh] gap-8 items-center justify-center back-gray z-20 shadow-md'>
             <h1 className='text-5xl font-semibold'>{blogPost.title}</h1>
             <div className='flex gap-4 items-center'>
                 <img src={blogPost.user?.image} className='w-12 h-12 rounded-full' />
@@ -80,7 +80,7 @@ const page = (pageProps) => {
                 </div>
             )}
         </main>
-        <div className='h-[70vh] absolute top-0 left-0 w-full overflow-hidden flex items-center z-0 mt-20'>
+        <div className='h-[80vh] absolute top-0 left-0 w-full overflow-hidden flex items-start z-0'>
             <img src={blogPost.imgsLand[0]} className='object-cover z-0' />
         </div>
         </>

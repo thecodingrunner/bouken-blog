@@ -14,7 +14,7 @@ const Carousel = () => {
   useEffect(() => {
 
     async function fetchPosts() {
-      const response = await fetch('/api/post/featured');
+      const response = await fetch('/api/post/recent');
       const result = await response.json();
       console.log(result)
       setCards(result)

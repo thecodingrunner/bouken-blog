@@ -11,14 +11,14 @@ const PostCard = ({post}) => {
   return (
     <>
         {post && (
-            <div className='flex flex-col gap-2'>
+            <div className='flex flex-col gap-2 back-gray p-4 shadow-md'>
                 <div>
                   {post.imgsLand && (
                     <img src={post.imgsLand[0]} className='object-cover' />
                   )}
                 </div>
                 <Link href={`/${post._id}`} className='text-2xl font-semibold'>{post.title}</Link>
-                <div className='flex gap-2'>
+                <div className='flex gap-2 items-center'>
                   <img src={post.user?.image} className='w-8 h-8 rounded-full' />
                   <Link href={`/${post._id}`}>{post.user?.username}</Link>
                 </div>

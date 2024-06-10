@@ -4,7 +4,7 @@ import About from "@/components/About";
 import Carousel from "@/components/Carousel";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
-import RecentPosts from "@/components/RecentPosts";
+import Posts from "@/components/Posts";
 
 export default function Home() {
 
@@ -13,7 +13,7 @@ export default function Home() {
       <Hero />
       <About />
       <Carousel />
-      <RecentPosts />
+      <Posts category="recent" />
     </main>
   );
 }
