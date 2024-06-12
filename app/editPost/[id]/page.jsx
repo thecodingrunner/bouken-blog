@@ -9,7 +9,11 @@ import {
 } from "firebase/storage";
 import { app } from "@/utils/firebase";
 import { useRouter, useSearchParams } from "next/navigation";
-import Form from "@/components/Form";
+import dynamic from "next/dynamic";
+
+const Form = dynamic(() => import("../../../components/Form"), {
+  ssr: false,
+});
 
 const EditPost = (searchParams) => {
   const [postContent, setPostContent] = useState("");

@@ -13,12 +13,15 @@ import {
 } from "firebase/storage";
 import { app } from "@/utils/firebase";
 import { Carter_One } from "next/font/google";
-import Form from "@/components/Form";
 import { useRouter } from "next/navigation";
+import dynamic from "next/dynamic";
+
+const Form = dynamic(() => import("../../components/Form"), {
+  ssr: false,
+});
 
 
-
-const CreatePost = () => {
+const page = () => {
   const [postContent, setPostContent] = useState("");
   const [title, setTitle] = useState("");
   const [categories, setCategories] = useState([]);
@@ -99,4 +102,4 @@ const CreatePost = () => {
   );
 };
 
-export default CreatePost;
+export default page;
