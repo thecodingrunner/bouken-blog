@@ -29,6 +29,8 @@ export const PATCH = async (request, { params }) => {
 
 
         existingPost.title = post.title
+        existingPost.date = post.date
+        existingPost.favourite = post.favourite
         existingPost.categories = post.categories
         existingPost.postContent = post.postContent.description
         existingPost.imgsLand = post.imgsLand

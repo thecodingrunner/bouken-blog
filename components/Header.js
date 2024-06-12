@@ -41,6 +41,8 @@ const Header = () => {
               <Link href='/featured'>Featured</Link>
               <Link href='/cycling'>Cycling</Link>
               <Link href='/language'>Language</Link>
+              <Link href='/lifestyle'>Lifestyle</Link>
+              <Link href='/thoughts'>Thoughts</Link>
             </div>
           {session?.user ? (
               <div className='flex items-center gap-4'>

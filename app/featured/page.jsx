@@ -3,7 +3,7 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div className='h-[90vh] pt-[20vh] back-gray'>
+    <div className='h-auto pt-[15vh] back-blue pb-10 h-min-[90vh]'>
       <Posts category="featured" />
     </div>
   )

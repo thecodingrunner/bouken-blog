@@ -9,6 +9,9 @@ const PostSchema = new Schema({
     location: {
         type: String,
     },
+    date: {
+        type: String,
+    },
     favourite: {
         type: Boolean,
         default: false,

@@ -14,7 +14,7 @@ const Carousel = () => {
   useEffect(() => {
 
     async function fetchPosts() {
-      const response = await fetch('/api/post/recent');
+      const response = await fetch('/api/post/featured');
       const result = await response.json();
       console.log(result)
       setCards(result)
@@ -28,7 +28,7 @@ const Carousel = () => {
         {cards && (
         <section className='w-screen h-screen overflow-hidden mx-auto'>
             <div ref={carouselRef} className='flex overflow-x-auto scroll-smooth no-scrollbar'>
-                <div className='w-[30vw] h-[90vh] back-red shrink-0 text-white flex flex-col gap-4 items-center justify-center'>
+                <div className='w-[30vw] h-[90vh] back-red shrink-0 text-gray flex flex-col gap-4 items-center justify-center'>
                     <h1 className='text-6xl'>Featured Posts</h1>
                 </div>
                 {cards.map((card) => {

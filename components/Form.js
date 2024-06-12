@@ -9,6 +9,7 @@ import {
   ref,
   uploadBytesResumable,
   getDownloadURL,
+  deleteObject
 } from "firebase/storage";
 import { app } from "@/utils/firebase";
 
@@ -34,6 +35,8 @@ const Form = ({
   setLocation,
   favourite,
   setFavourite,
+  date,
+  setDate
 }) => {
   const [loadedLand, setLoadedLand] = useState(false);
   const [loadedPort, setLoadedPort] = useState(false);
@@ -58,6 +61,46 @@ const Form = ({
       };
     });
   };
+
+  const deleteLand = (src) => {
+
+    const confirmedLand = confirm('Do you want to delete this image?')
+
+    if (confirmedLand) {
+      // Create a reference to the file to delete
+      const deleteRef = ref(storage, src);
+
+      // Delete the file
+      deleteObject(deleteRef).then(() => {
+        console.log('deleted landscape image successfully')
+        setMediaLand(prev => prev.filter(link => link != src))
+        console.log(mediaLand)
+      }).catch((error) => {
+        console.log('unable to delete landscape image', error)
+      });
+    }
+
+  }
+
+  const deletePort = (src) => {
+
+    const confirmedPort = confirm('Do you want to delete this image?')
+
+    if (confirmedPort) {
+      // Create a reference to the file to delete
+      const deleteRef = ref(storage, src);
+
+      // Delete the file
+      deleteObject(deleteRef).then(() => {
+        console.log('deleted portrait image successfully')
+        setMediaPort(prev => prev.filter(link => link != src))
+        console.log(mediaPort)
+      }).catch((error) => {
+        console.log('unable to delete portait image', error)
+      });
+    }
+
+  }
 
   useEffect(() => {
     const uploadPort = (file) => {
@@ -133,33 +176,44 @@ const Form = ({
 
   return (
     <form
-      className="w-1/3 flex flex-col gap-8 items-center justify-between"
+      className="w-1/2 flex flex-col gap-8 items-center justify-between text-2xl bg-white p-10 shadow-md"
       onSubmit={(e) => handleSubmit(e)}
     >
-      <input
-        type="text"
-        value={title}
-        className="input"
-        id="title"
-        name="Title"
-        placeholder="Title"
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      <input
-        type="text"
-        value={location}
-        className="input"
-        id="location"
-        name="Location"
-        placeholder="Location"
-        onChange={(e) => setLocation(e.target.value)}
-      />
+      <div className="flex gap-2 items-center">
+        <label htmlFor="title" >Title: </label>
+        <input
+          type="text"
+          value={title}
+          className="input"
+          id="title"
+          name="Title"
+          placeholder="Title"
+          onChange={(e) => setTitle(e.target.value)}
+        />
+      </div>
+      <div className="flex gap-2 items-center">
+        <label htmlFor="location" >Location: </label>
+        <input
+          type="text"
+          value={location}
+          className="input"
+          id="location"
+          name="Location"
+          placeholder="Location"
+          onChange={(e) => setLocation(e.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="date">Date Written: </label>
+        <input type="date" value={date} id="date" onChange={(e) => setDate(e.target.value)} className="border-2 p-1" />
+      </div>
       <div className="flex gap-4">
         <label for="favourite">Favourite</label>
         <input
           type="checkbox"
           id="favourite"
           name="favourite"
+          checked={favourite}
           onChange={() => setFavourite((prev) => !prev)}
         />
       </div>
@@ -167,7 +221,7 @@ const Form = ({
         htmlFor="imageLand"
         className={`${
           loadedLand ? "bg-green-600" : ""
-        } border border-black w-full h-auto flex items-center justify-center`}
+        } border border-black w-auto p-1 h-auto flex items-center justify-center`}
       >
         <h2>Upload Landscape Images</h2>
         <svg
@@ -192,11 +246,11 @@ const Form = ({
           hidden
         />
       </label>
-      <div className="flex gap-6 flex-wrap">
+      <div className="grid grid-cols-3 gap-4">
         {mediaLand &&
           mediaLand.map((link) => (
             <div key={link} className="rounded-lg w-40 overflow-hidden">
-              <img src={link} alt="" className="object-cover w-full" />
+              <img src={link} alt="" className="object-cover w-full" onClick={(e) => deleteLand(e.target.src)}/>
             </div>
           ))}
       </div>
@@ -204,7 +258,7 @@ const Form = ({
         htmlFor="imagePort"
         className={`${
           loadedPort ? "bg-green-600" : ""
-        } border border-black w-full h-auto flex items-center justify-center`}
+        } border border-black w-auto p-1 h-auto flex items-center justify-center`}
       >
         <h2>Upload Portrait Images</h2>
         <svg
@@ -229,14 +283,15 @@ const Form = ({
           hidden
         />
       </label>
-      <div className="flex gap-6 flex-wrap">
+      <div className="flex gap-4 flex-wrap justify-center w-full">
         {mediaPort &&
           mediaPort.map((link) => (
             <div key={link} className="rounded-lg h-40 overflow-hidden">
-              <img src={link} alt="" className="object-conver h-full" />
+              <img src={link} alt="" className="object-conver h-full" onClick={(e) => deletePort(e.target.src)}/>
             </div>
           ))}
       </div>
+      <h2>Categories:</h2>
       <div className="flex gap-2">
         <input
           type="checkbox"
@@ -288,10 +343,10 @@ const Form = ({
         value={postContent.description}
         onChange={handleQuillEdit}
         theme="snow"
-        className={`w-full h-auto`}
+        className='w-full h-auto h-min-[30vh]'
         placeholder={postContent}
       />
-      <button type="submit" className="btn bg-black text-white">
+      <button type="submit" className="btn back-red text-white">
         Submit
       </button>
     </form>

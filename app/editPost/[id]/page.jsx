@@ -21,6 +21,7 @@ const EditPost = (searchParams) => {
   const [mediaPort, setMediaPort] = useState("");
   const [location, setLocation] = useState('');
   const [favourite, setFavourite] = useState(false);
+  const [date, setDate] = useState('');
 
   const { data: session } = useSession();
 
@@ -37,6 +38,8 @@ const EditPost = (searchParams) => {
       console.log(post.imgsLand)
       setPostContent({description: post.postContent})
       setTitle(post.title)
+      setDate(post.date)
+      setFavourite(post.favourite)
       setCategories(post.categories)
       setMediaLand(post.imgsLand)
       setMediaPort(post.imgsPort)
@@ -53,6 +56,7 @@ const EditPost = (searchParams) => {
     const post = {
       title,
       location,
+      date,
       favourite,
       categories,
       postContent: postContent,
@@ -99,6 +103,8 @@ const EditPost = (searchParams) => {
           setLocation={setLocation}
           favourite={favourite}
           setFavourite={setFavourite}
+          date={date}
+          setDate={setDate}
         />
       ) : (
         <div>Please log in to create a post</div>

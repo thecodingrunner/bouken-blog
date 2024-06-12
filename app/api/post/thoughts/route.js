@@ -5,7 +5,9 @@ export const GET = async (request) => {
     try {
         await connectToDB()
 
-        const posts = await Post.find({}).populate('user').limit(9)
+        const posts = await Post.find({ categories: { $in: ['Thoughts'] } }).populate('user')
+
+        console.log(posts)
 
         return new Response(JSON.stringify(posts), { status: 200 })
     } catch (error) {

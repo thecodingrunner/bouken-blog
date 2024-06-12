@@ -3,8 +3,8 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div className='h-auto pt-[15vh] back-blue pb-10 h-min-[90vh]'>
-      <Posts category="cycling" />
+    <div className='h-min-screen pt-[15vh] back-blue pb-10'>
+      <Posts category="lifestyle" />
     </div>
   )
 }

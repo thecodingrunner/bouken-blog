@@ -34,6 +34,23 @@ export const textVariant = (delay) => ({
     },
 });
 
+export const textVariantCarousel = (delay) => ({
+  hidden: {
+      // y: 300,
+      opacity: 0,
+  },
+  show: {
+      // y: 0,
+      opacity: 1,
+      transition: {
+      type: 'tween',
+      duration: 0.75,
+      ease: 'easeOut',
+      delay,
+      },
+  },
+});
+
 export const textVariant2 = {
     hidden: {
       opacity: 0,

@@ -28,6 +28,7 @@ const CreatePost = () => {
   const [mediaPort, setMediaPort] = useState("");
   const [location, setLocation] = useState('');
   const [favourite, setFavourite] = useState(false);
+  const [date, setDate] = useState('')
 
   const { data: session } = useSession();
 
@@ -39,6 +40,7 @@ const CreatePost = () => {
     const post = {
       title,
       location,
+      date,
       favourite,
       categories,
       postContent: postContent.description,
@@ -85,6 +87,8 @@ const CreatePost = () => {
           setLocation={setLocation}
           favourite={favourite}
           setFavourite={setFavourite}
+          date={date}
+          setDate={setDate}
         />
       ) : (
         <div>Please log in to create a post</div>
