@@ -32,7 +32,7 @@ const Carousel = () => {
                     <h1 className='text-6xl'>Featured Posts</h1>
                 </div>
                 {cards.map((card) => {
-                return <CarouselCard card={card} key={card.id} />
+                return <CarouselCard card={card} key={card._id} />
                 })}
             </div>
         </section>

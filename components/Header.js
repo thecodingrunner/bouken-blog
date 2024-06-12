@@ -32,7 +32,7 @@ const Header = () => {
       className="w-auto h-auto"
     >
       <motion.div variants={slideIn('down', 'tween', 0, 1.75)} className="absolute top-0 text-white left-0 z-30 w-full bg-[#ad4b02]">
-          <navbar className="flex justify-between items-center py-6 px-20">
+          <div className="flex justify-between items-center py-6 px-20">
             <div className="flex gap-3 items-center">
               <Link href={'/'} className='font-bold text-3xl'>
                 BOUKEN 冒険
@@ -58,7 +58,7 @@ const Header = () => {
               )))}
               </div>
           )}
-          </navbar>
+          </div>
       </motion.div>
     </motion.div>
   )

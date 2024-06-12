@@ -16,7 +16,7 @@ import { Carter_One } from "next/font/google";
 import Form from "@/components/Form";
 import { useRouter } from "next/navigation";
 
-const storage = getStorage(app);
+
 
 const CreatePost = () => {
   const [postContent, setPostContent] = useState("");
@@ -29,6 +29,8 @@ const CreatePost = () => {
   const [location, setLocation] = useState('');
   const [favourite, setFavourite] = useState(false);
   const [date, setDate] = useState('')
+  // const storage = getStorage(app);
+
 
   const { data: session } = useSession();
 

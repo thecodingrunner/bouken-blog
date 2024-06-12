@@ -208,7 +208,7 @@ const Form = ({
         <input type="date" value={date} id="date" onChange={(e) => setDate(e.target.value)} className="border-2 p-1" />
       </div>
       <div className="flex gap-4">
-        <label for="favourite">Favourite</label>
+        <label htmlFor="favourite">Favourite</label>
         <input
           type="checkbox"
           id="favourite"

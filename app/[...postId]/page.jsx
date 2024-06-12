@@ -59,15 +59,15 @@ const page = (pageProps) => {
             )}
             <p className='text-2xl leading-10 mb-6' dangerouslySetInnerHTML={{__html: blogPost.postContent}}></p>
             <div className='grid grid-cols-3 gap-3'>
-                {blogPost.imgsLand.map(img => (
-                    <button onClick={() => setView(img)} className='h-[30vh] overflow-hidden'>
+                {blogPost.imgsLand.map((img, index) => (
+                    <button onClick={() => setView(img)} className='h-[30vh] overflow-hidden' key={index}>
                         <img src={img} className='object-contain' />
                     </button>
                 ))}
             </div>
             <div className='grid grid-cols-4 gap-3'>
-                {blogPost.imgsPort.map(img => (
-                    <button onClick={() => setView(img)} className='h-[40vh] overflow-hidden'>
+                {blogPost.imgsPort.map((img, index) => (
+                    <button onClick={() => setView(img)} className='h-[40vh] overflow-hidden' key={index}>
                         <img src={img} className='object-contain' />
                     </button>
                 ))}
