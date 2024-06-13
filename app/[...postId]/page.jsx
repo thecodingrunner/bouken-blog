@@ -44,7 +44,7 @@ const page = (pageProps) => {
     <div className='back-blue pb-10'>
     {blogPost && (
         <>
-        <main className='relative w-3/4 mx-auto py-20 px-10 flex flex-col mt-[50vh] gap-2 items-center justify-center back-gray z-20 shadow-md'>
+        <main className='relative w-[90vw] sm:w-3/4 mx-auto py-20 px-10 flex flex-col mt-[50vh] gap-2 items-center justify-center back-gray z-20 shadow-md'>
             <h1 className='text-5xl font-semibold mb-6'>{blogPost.title}</h1>
             <div className='flex gap-4 items-center'>
                 <img src={blogPost.user?.image} className='w-12 h-12 rounded-full' />
@@ -57,15 +57,15 @@ const page = (pageProps) => {
                     <button className='btn bg-red-600 text-white' onClick={deletePost}>Delete Post</button>
                 </div>
             )}
-            <p className='text-2xl leading-10 mb-6' dangerouslySetInnerHTML={{__html: blogPost.postContent}}></p>
-            <div className='grid grid-cols-3 gap-3'>
+            <p className='text-lg sm:text-2xl leading-10 mb-6' dangerouslySetInnerHTML={{__html: blogPost.postContent}}></p>
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3'>
                 {blogPost.imgsLand.map((img, index) => (
                     <button onClick={() => setView(img)} className='h-[30vh] overflow-hidden' key={index}>
                         <img src={img} className='object-contain' />
                     </button>
                 ))}
             </div>
-            <div className='grid grid-cols-4 gap-3'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3'>
                 {blogPost.imgsPort.map((img, index) => (
                     <button onClick={() => setView(img)} className='h-[40vh] overflow-hidden' key={index}>
                         <img src={img} className='object-contain' />
@@ -95,7 +95,7 @@ const page = (pageProps) => {
             )}
         </main>
         <div className='h-[80vh] absolute top-0 left-0 w-full overflow-hidden flex items-center z-0'>
-            <img src={blogPost.imgsLand[0]} className='object-cover z-0' />
+            <img src={blogPost.imgsLand[0]} className='object-cover h-full w-full z-0' />
         </div>
         </>
     )}

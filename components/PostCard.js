@@ -11,16 +11,23 @@ const PostCard = ({post}) => {
   return (
     <>
         {post && (
-            <div className='flex flex-col gap-2 back-gray p-4 shadow-md'>
+            <div className='flex flex-col back-gray shadow-md'>
                 <div>
                   {post.imgsLand && (
                     <img src={post.imgsLand[0]} className='object-cover' />
                   )}
                 </div>
-                <Link href={`/${post._id}`} className='text-2xl font-semibold'>{post.title}</Link>
-                <div className='flex gap-2 items-center'>
-                  <img src={post.user?.image} className='w-8 h-8 rounded-full' />
-                  <Link href={`/${post._id}`}>{post.user?.username}</Link>
+                <div className='p-4'>
+                  <Link href={`/${post._id}`} className='text-2xl font-semibold'>{post.title}</Link>
+                  <div className='flex justify-between items-center mt-3'>
+                    <div className='flex gap-2 items-center'>
+                      <img src={post.user?.image} className='w-8 h-8 rounded-full' />
+                      <Link href={`/${post._id}`}>{post.user?.username}</Link>
+                    </div>
+                    <div className='text-sm font-bold'>
+                      {post.date}
+                    </div>
+                  </div>
                 </div>
             </div>
         )}

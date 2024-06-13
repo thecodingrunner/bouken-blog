@@ -34,7 +34,6 @@ const page = () => {
   const [date, setDate] = useState('')
   // const storage = getStorage(app);
 
-
   const { data: session } = useSession();
 
   const router = useRouter()

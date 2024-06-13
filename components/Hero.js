@@ -20,29 +20,37 @@ const Hero = () => {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.25 }}
-      className="h-[90vh] w-full"
+      className="h-[128vh] md:h-[90vh] w-full"
     >
-      <motion.h1
+      <motion.div
         variants={textVariant(0)}
-        className="text-[13rem] font-bold absolute right-[5vw] top-[8vh] background z-10"
+        className="absolute right-[0.5vw] sm:right-[5vw] top-[9vh] z-10 flex flex-col items-end"
+      >
+        <h1 className="text-[6rem] sm:text-[10rem] xl:text-[13rem] font-bold background">BOUKEN</h1>
+        <h1 className="text-[5rem] sm:text-[9rem] xl:text-[11rem] font-extrabold -mt-10 sm:-mt-16">冒険</h1>
+        <h1 className="text-xl sm:text-2xl font-semibold text-red">By Finn Moffett</h1>
+      </motion.div>
+      {/* <motion.h1
+        variants={textVariant(0)}
+        className="text-[6rem] sm:text-[10rem] xl:text-[13rem] font-bold absolute right-[0.5vw] sm:right-[5vw] top-[8vh] background z-10"
       >
         BOUKEN
       </motion.h1>
       <motion.h1
         variants={textVariant(0)}
-        className="text-[11rem] font-extrabold absolute right-[5vw] top-[33vh] z-10"
+        className="text-[5rem] sm:text-[9rem] xl:text-[11rem] font-extrabold absolute right-[0.5vw] sm:right-[5vw] top-[23vh] sm:top-[33vh] z-10"
       >
         冒険
       </motion.h1>
       <motion.h1
         variants={textVariant(0)}
-        className="text-2xl font-semibold absolute right-[5vw] top-[65vh] text-red"
+        className="text-xl sm:text-2xl font-semibold absolute right-[0.5vw] sm:right-[5vw] top-[39vh] sm:top-[65vh] text-red"
       >
         By Finn Moffett
-      </motion.h1>
+      </motion.h1> */}
       <motion.div
         variants={slideIn("left", "tween", 0, 1.5)}
-        className="absolute left-[2vw] bottom-[5vh] flex flex-col w-[35vw] text-4xl font-semibold"
+        className="absolute left-[15vw] md:left-[2vw] -bottom-[48vh] md:bottom-[5vh] flex flex-col w-[70vw] md:w-[45vw] lg:w-[35vw] text-2xl sm:text-4xl md:text-2xl xl:text-4xl font-semibold"
       >
         <Link
           href="/66682d4bb18e894d7bf99829"

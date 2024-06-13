@@ -29,7 +29,7 @@ const Carousel = () => {
         <section className='w-screen h-screen overflow-hidden mx-auto'>
             <div ref={carouselRef} className='flex overflow-x-auto scroll-smooth no-scrollbar'>
                 <div className='w-[30vw] h-[90vh] back-red shrink-0 text-gray flex flex-col gap-4 items-center justify-center'>
-                    <h1 className='text-6xl'>Featured Posts</h1>
+                    <h1 className='text-3xl md:text-6xl text-center'>Featured Posts</h1>
                 </div>
                 {cards.map((card) => {
                 return <CarouselCard card={card} key={card._id} />

@@ -37,3 +37,7 @@ next-env.d.ts
 
 
 .env
+
+compose.yaml
+/compose.yaml
+

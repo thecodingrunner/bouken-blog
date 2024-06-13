@@ -21,7 +21,7 @@ const CarouselCard = ({ card }) => {
     <>
       {card.imgsPort && (
         <motion.div
-          className="w-[30vw] h-[90vh] overflow-hidden shrink-0 relative"
+          className="w-[60vw] sm:w-[50vw] md:w-[30vw] h-[90vh] overflow-hidden shrink-0 relative"
           onMouseOver={handleMouseOver}
           onMouseOut={handleMouseOut}
         >

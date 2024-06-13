@@ -176,7 +176,7 @@ const Form = ({
 
   return (
     <form
-      className="w-1/2 flex flex-col gap-8 items-center justify-between text-2xl bg-white p-10 shadow-md"
+      className="w-[90vw] md:w-3/4 lg:w-3/5 flex flex-col gap-8 items-center justify-between text-2xl bg-white p-10 shadow-md"
       onSubmit={(e) => handleSubmit(e)}
     >
       <div className="flex gap-2 items-center">
@@ -292,7 +292,7 @@ const Form = ({
           ))}
       </div>
       <h2>Categories:</h2>
-      <div className="flex gap-2">
+      <div className="flex gap-2 flex-wrap justify-center">
         <input
           type="checkbox"
           checked={categories.includes("Cycling")}

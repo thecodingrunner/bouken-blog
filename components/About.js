@@ -7,7 +7,7 @@ import { TypingText } from './TypingText'
 
 const About = () => {
   return (
-    <section className="relative mt-24 mb-48">
+    <section className="relative mt-16 mb-28 md:mt-24 md:mb-48">
       <div className='gradient-02 z-0' />
       <motion.div
         variants={staggerContainer}

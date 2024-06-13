@@ -25,7 +25,7 @@ const Posts = ({ category }) => {
     <div className="w-screen flex flex-col gap-10 items-center">
         <h1 className="text-4xl capitalize">{category} Posts</h1>
         {posts ? (
-            <div className="mx-auto w-[70vw] grid grid-cols-3 gap-10">
+            <div className="mx-auto w-[70vw] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
                 {posts.map(post => (
                 <PostCard post={post} key={post.title} />
                 ))}
