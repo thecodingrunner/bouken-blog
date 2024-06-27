@@ -1,6 +1,6 @@
 <h1>Bouken Blog</h1>
 
-Visit website: [https://www.dickiemellie.com](https://bouken-blog.fly.dev/)
+Visit website: https://bouken-blog.fly.dev/
 
 <h2>Description:</h2>
 Experience Japan Through My Eyes: A Full-Stack Next.js Adventure Blog. Note: The live demo may take up to 15 seconds to initialize. If you encounter any issues, please refresh the page.
