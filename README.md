@@ -1,4 +1,4 @@
-![bouken markup](https://github.com/thecodingrunner/bouken-blog/assets/22331070/fbbc24b5-b758-4998-8d7a-30c66874786d)<h1>Bouken Blog</h1>
+h1>Bouken Blog</h1>
 
 Visit website: https://www.dickiemellie.com
 
