@@ -44,7 +44,7 @@ const page = (pageProps) => {
     <div className='back-blue pb-10'>
     {blogPost && (
         <>
-        <main className='relative w-[90vw] sm:w-3/4 mx-auto py-20 px-10 flex flex-col mt-[50vh] gap-2 items-center justify-center back-gray z-20 shadow-md'>
+        <main className='relative w-[90vw] sm:w-3/4 mx-auto py-20 px-10 flex flex-col mt-[50vh] gap-2 items-center justify-center back-gray z-10 shadow-md'>
             <h1 className='text-5xl font-semibold mb-6'>{blogPost.title}</h1>
             <div className='flex gap-4 items-center'>
                 <img src={blogPost.user?.image} className='w-12 h-12 rounded-full' />

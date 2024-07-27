@@ -59,12 +59,6 @@ body {
   color: #d7dbda;
 }
 
-.back-img {
-  background-image: url('../public/sea.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  backdrop-filter: black;
-}
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 .no-scrollbar::-webkit-scrollbar {
