@@ -1,6 +1,7 @@
 "use client"
 
 import About from "@/components/About";
+import Book from "@/components/Book";
 import Carousel from "@/components/Carousel";
 import DarkModeButton from "@/components/DarkModeButton";
 import Footer from "@/components/Footer";
@@ -12,6 +13,7 @@ export default function Home() {
     <main className="pt-48 back-blue overflow-hidden">
       <Hero />
       <About />
+      <Book />
       <Carousel />
       <DarkModeButton />
     </main>
