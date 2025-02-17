@@ -37,7 +37,7 @@ const Header = () => {
         <Link href='/featured' className="py-8 pt-20" onClick={() => setDisplayMenu(prev => !prev)}>Featured</Link>
         <Link href='/cycling' className="py-8" onClick={() => setDisplayMenu(prev => !prev)}>Cycling</Link>
       </div>
-      <motion.div variants={slideIn('down', 'tween', 0, 1.75)} className="absolute top-0 text-white left-0 z-30 w-full bg-transparent">
+      <motion.div variants={slideIn('down', 'tween', 0, 1.75)} className="fixed top-0 text-white left-0 z-30 w-full bg-transparent">
           <div className="flex justify-between items-center py-12 sm:px-28 px-18 z-60">
             <div className="flex gap-3 items-center">
               <Link href={'/'} className='font-medium text-4xl tracking-tight'>
