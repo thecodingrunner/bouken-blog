@@ -13,8 +13,12 @@ const Header = () => {
     const { data: session } = useSession();
     const [displayProfile, setDisplayProfile] = useState(false);
     const [displayMenu, setDisplayMenu] = useState(false);
+
+    const [lastScrollY, setLastScrollY] = useState(0);
+    const [hidden, setHidden] = useState(false);
   
     useEffect(() => {
+      // Set providers
       const setUpProviders = async () => {
         const response = await getProviders();
         console.log(response)
@@ -23,15 +27,35 @@ const Header = () => {
       }
   
       setUpProviders()
-    }, [])
+
+      // Handle scrolling
+      const handleScroll = () => {
+        const currentScrollY = window.scrollY;
+  
+        if (currentScrollY > lastScrollY) {
+          setHidden(true); // Hide on scroll down
+        } else {
+          setHidden(false); // Show on scroll up
+        }
+  
+        setLastScrollY(currentScrollY);
+      };
+
+
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+
+    }, [lastScrollY])
 
   return (
-    <motion.div
+    <motion.nav
       variants={staggerContainer}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.25 }}
-      className="w-auto h-auto"
+      animate={{ y: hidden ? "-100%" : "0%" }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="fixed top-0 left-0 w-full h-full transition-all"
     >
       <div className={`md:hidden absolute left-0 w-screen flex flex-col items-center gap-6 bg-white text-red text-3xl transition-all ease-in-out duration-500 ${displayMenu ? 'top-[5vh]' : '-top-full'} z-20`}>
         <Link href='/featured' className="py-8 pt-20" onClick={() => setDisplayMenu(prev => !prev)}>Featured</Link>
@@ -90,7 +114,7 @@ const Header = () => {
             </div>
             </div>
       </motion.div>
-    </motion.div>
+    </motion.nav>
   )
 }
 
