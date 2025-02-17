@@ -36,26 +36,27 @@ const Header = () => {
       <div className={`md:hidden absolute left-0 w-screen flex flex-col items-center gap-6 bg-white text-red text-3xl transition-all ease-in-out duration-500 ${displayMenu ? 'top-[5vh]' : '-top-full'} z-20`}>
         <Link href='/featured' className="py-8 pt-20" onClick={() => setDisplayMenu(prev => !prev)}>Featured</Link>
         <Link href='/cycling' className="py-8" onClick={() => setDisplayMenu(prev => !prev)}>Cycling</Link>
-        <Link href='/language' className="py-8" onClick={() => setDisplayMenu(prev => !prev)}>Language</Link>
-        <Link href='/lifestyle' className="py-8" onClick={() => setDisplayMenu(prev => !prev)}>Lifestyle</Link>
-        <Link href='/thoughts' className="py-8" onClick={() => setDisplayMenu(prev => !prev)}>Thoughts</Link>
       </div>
-      <motion.div variants={slideIn('down', 'tween', 0, 1.75)} className="absolute top-0 text-white left-0 z-30 w-full bg-[#ad4b02]">
-          <div className="flex justify-between items-center py-6 sm:px-20 px-2 z-60">
+      <motion.div variants={slideIn('down', 'tween', 0, 1.75)} className="absolute top-0 text-white left-0 z-30 w-full bg-transparent">
+          <div className="flex justify-between items-center py-12 sm:px-28 px-18 z-60">
             <div className="flex gap-3 items-center">
-              <Link href={'/'} className='font-bold text-3xl'>
-                BOUKEN 冒険
+              <Link href={'/'} className='font-medium text-4xl tracking-tight'>
+                <div className="relative">
+                  <div className="h-24 w-24 bg-dark-highlight rounded-full absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"></div>
+                  <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2">
+                    <span className="dark:text-white text-light-text">B</span>
+                    <span className="text-white">OUKE</span>
+                    <span className="dark:text-white text-light-text">N</span>
+                  </div>
+                </div>
               </Link>
-              <div className="w-[1px] h-[2rem] bg-white items-center" />
-              <div className="md:flex gap-2 justify-center items-center hidden">
-                <Link href='/featured'>Featured</Link>
-                <Link href='/cycling'>Cycling</Link>
-                <Link href='/language'>Language</Link>
-                <Link href='/lifestyle'>Lifestyle</Link>
-                <Link href='/thoughts'>Thoughts</Link>
-              </div>
             </div>
             <div className="flex items-center justify-center gap-4">
+              <div className="md:flex gap-4 justify-center items-center hidden dark:text-dark-text text-light-text italic text-lg">
+                <Link href=''>Book</Link>
+                <Link href=''>Drawings</Link>
+                <Link href=''>Blog</Link>
+              </div>
               <button className="flex md:hidden" onClick={() => setDisplayMenu(prev => !prev)}>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor" className="size-10">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -82,7 +83,7 @@ const Header = () => {
                   <div className='flex items-center gap-4'>
                     {providers && (
                         Object.values(providers).map((provider) => (
-                        <button type='button' className='btn bg-white text-black' key={provider.name} onClick={() => signIn(provider.id)}>Sign In</button>
+                        <button type='button' className='btn dark:bg-dark-text dark:text-dark-background bg-light-text text-light-background text-lg' key={provider.name} onClick={() => signIn(provider.id)}>Log in</button>
                     )))}
                   </div>
               )}

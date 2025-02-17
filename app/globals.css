@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 :root {
   --dark-background: #1E1E1E;
@@ -15,13 +16,11 @@
 }
 
 body {
-  font-family: "Oswald", sans-serif;
+  font-family: "Inter", serif;
 }
 
 .btn {
   padding: 0.5rem 1rem;
-  border-radius: 10px;
-  gap: 1rem;
 }
 
 .input {
@@ -50,3 +49,7 @@ body {
 }
 
 
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}

@@ -2,6 +2,10 @@
 
 import useTheme from "@/utils/useTheme";
 import { useEffect, useState } from "react";
+import { CiSun } from "react-icons/ci";
+import { IoMoonOutline } from "react-icons/io5";
+import { FaRegMoon } from "react-icons/fa";
+import { FaSun } from "react-icons/fa";
 
 const DarkModeButton = () => {
     const { theme, setTheme } = useTheme();
@@ -9,9 +13,9 @@ const DarkModeButton = () => {
   return (
     <button 
         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-        className="fixed left-2 bottom-2 rounded-full bg-red-600 text-white dark:bg-black p-2"
+        className="fixed left-2 bottom-2 rounded-full bg-light-highlight text-white dark:bg-dark-highlight p-3 text-5xl shadow-lg"
     >
-        {theme === "dark" ? "☀️ Light Mode" : "🌙 Dark Mode"}
+        {theme === "dark" ? <FaSun /> : <FaRegMoon />}
     </button>
   )
 }
