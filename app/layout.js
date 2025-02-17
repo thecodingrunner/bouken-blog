@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet" />
       </head>
-      <body className="overflow-x-hidden back-blue">
+      <body className="overflow-x-hidden dark:bg-dark-background bg-light-background dark:text-dark-text text-light-text">
         <Provider>
           <Header />
           {children}

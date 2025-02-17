@@ -5,7 +5,7 @@ export const GET = async (request) => {
     try {
         await connectToDB()
 
-        const posts = await Post.find({ categories: { $in: ['Language'] } }).populate('user')
+        const posts = await Post.find().populate('user')
 
         console.log(posts)
 

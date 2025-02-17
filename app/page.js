@@ -1,8 +1,10 @@
+"use client"
+
 import About from "@/components/About";
 import Carousel from "@/components/Carousel";
+import DarkModeButton from "@/components/DarkModeButton";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
-import Posts from "@/components/Posts";
 
 export default function Home() {
 
@@ -11,7 +13,7 @@ export default function Home() {
       <Hero />
       <About />
       <Carousel />
-      <Posts category="recent" />
+      <DarkModeButton />
     </main>
   );
 }

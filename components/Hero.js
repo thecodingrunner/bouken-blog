@@ -64,7 +64,7 @@ const Hero = () => {
         <h1 className="text-[5rem] sm:text-[9rem] xl:text-[11rem] font-extrabold -mt-10 sm:-mt-16">
           冒険
         </h1>
-        <h1 className="text-xl sm:text-2xl font-semibold text-red">
+        <h1 className="text-xl sm:text-2xl font-semibold">
           By Finn Moffett
         </h1>
       </motion.div>

@@ -4,6 +4,16 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
+:root {
+  --dark-background: #1E1E1E;
+  --dark-highlight: #D40000;
+  --dark-text: #F8F8F8;
+  
+  --light-background: #F8F8F8;
+  --light-highlight: #9D0000;
+  --light-text: #000000;
+}
+
 body {
   font-family: "Oswald", sans-serif;
 }
@@ -27,38 +37,6 @@ body {
   background-size: cover;
 }
 
-.back-blue {
-  background-color: #a3b2b5;
-}
-
-.back-red {
-  background-color: #ad4b02;
-}
-
-.back-brown {
-  background-color: #432910;
-}
-
-.back-gray {
-  background-color: #d7dbda;
-}
-
-.text-blue {
-  color: #a3b2b5;
-}
-
-.text-red {
-  color: #ad4b02;
-}
-
-.text-brown {
-  color: #432910;
-}
-
-.text-gray {
-  color: #d7dbda;
-}
-
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 .no-scrollbar::-webkit-scrollbar {
@@ -70,3 +48,5 @@ body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+
