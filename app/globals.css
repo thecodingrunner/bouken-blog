@@ -54,6 +54,10 @@ body {
   text-orientation: upright;
 }
 
-.red-shadow {
-  box-shadow: 0px 0px 30px 5px #D40000;
+.dark-red-shadow {
+  box-shadow: 0px 0px 30px 5px var(--dark-highlight);
+}
+
+.light-red-shadow {
+  box-shadow: 0px 0px 30px 5px var(--light-highlight);
 }

@@ -50,12 +50,12 @@ const Header = () => {
   return (
     <motion.nav
       variants={staggerContainer}
-      initial="hidden"
+      initial={{ y: "-100%"}}
       whileInView="show"
       viewport={{ once: true, amount: 0.25 }}
       animate={{ y: hidden ? "-100%" : "0%" }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className="fixed top-0 left-0 w-full h-full transition-all"
+      className="fixed top-0 left-0 h-48 w-full transition-all z-50"
     >
       <div className={`md:hidden absolute left-0 w-screen flex flex-col items-center gap-6 bg-white text-red text-3xl transition-all ease-in-out duration-500 ${displayMenu ? 'top-[5vh]' : '-top-full'} z-20`}>
         <Link href='/featured' className="py-8 pt-20" onClick={() => setDisplayMenu(prev => !prev)}>Featured</Link>
@@ -66,7 +66,7 @@ const Header = () => {
             <div className="flex gap-3 items-center">
               <Link href={'/'} className='font-medium text-4xl tracking-tight'>
                 <div className="relative">
-                  <div className="h-24 w-24 bg-dark-highlight rounded-full absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"></div>
+                  <div className="h-24 w-24 dark:bg-dark-highlight bg-light-highlight rounded-full absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"></div>
                   <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2">
                     <span className="dark:text-white text-light-text">B</span>
                     <span className="text-white">OUKE</span>

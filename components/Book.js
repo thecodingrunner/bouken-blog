@@ -7,7 +7,7 @@ const Book = () => {
         <div className='flex gap-10'>
             <h2 className="w-auto text-[8rem] font-semibold vertical-text text-center">外人縦断</h2>
             <div className='w-auto shrink-0 px-10'>
-                <img src={cover.src} className='w-[370px] red-shadow'></img>
+                <img src={cover.src} className='w-[370px] dark:dark-red-shadow light-red-shadow'></img>
             </div>
             <div className='flex flex-col gap-10 flex-1 justify-center items-end w-[500px]'>
                 <p className='text-3xl'>

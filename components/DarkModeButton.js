@@ -12,8 +12,11 @@ const DarkModeButton = () => {
 
   return (
     <button 
-        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-        className="fixed left-2 bottom-2 rounded-full bg-light-highlight text-white dark:bg-dark-highlight p-3 text-5xl shadow-lg"
+        onClick={() => {
+          setTheme(theme === "dark" ? "light" : "dark");
+          console.log("triggered");
+        }}
+        className="fixed left-2 bottom-2 rounded-full bg-light-highlight text-white dark:bg-dark-highlight p-3 text-5xl shadow-lg z-60"
     >
         {theme === "dark" ? <FaSun /> : <FaRegMoon />}
     </button>
