@@ -9,11 +9,11 @@ const Book = () => {
             <div className='w-auto shrink-0 px-10'>
                 <img src={cover.src} className='w-[370px] dark:dark-red-shadow light-red-shadow'></img>
             </div>
-            <div className='flex flex-col gap-10 flex-1 justify-center items-end w-[500px]'>
+            <div className='flex flex-col gap-10 flex-1 justify-center items-start w-[510px] px-10'>
                 <p className='text-3xl'>
                     あるイギリス人が日本に来て、自転車で日本縦断をしようとしたらどうなるのか？学んだ日本語は通じるか？文化の違いに驚くか？日本のことが好きになるか、それとも嫌いになるか？日本での冒険をしながら、自分について何を気づかされるのか？本人が書いた日記を通して、こういう疑問への答えは明らかになる。
                 </p>
-                <button className='btn dark:bg-dark-highlight text-dark-text bg-light-highlight text-lg'>Buy the book</button>
+                <button className='btn dark:bg-dark-highlight text-dark-text bg-light-highlight text-lg ml-1'>Buy the book</button>
             </div>
         </div>
     </section>

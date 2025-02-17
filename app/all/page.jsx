@@ -4,7 +4,7 @@ import React from 'react'
 const page = () => {
   return (
     <div className='h-auto pt-[15vh] back-blue pb-10 h-min-[90vh]'>
-      <Posts category="cycling" />
+      <Posts category="all" />
     </div>
   )
 }

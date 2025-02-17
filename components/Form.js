@@ -176,39 +176,49 @@ const Form = ({
 
   return (
     <form
-      className="w-[90vw] md:w-3/4 lg:w-3/5 flex flex-col gap-8 items-center justify-between text-2xl bg-white p-10 shadow-md"
+      className="w-3/5 flex flex-col gap-8 items-center justify-between text-lg bg-white py-16 shadow-xl rounded-3xl text-light-text"
       onSubmit={(e) => handleSubmit(e)}
     >
-      <div className="flex gap-2 items-center">
-        <label htmlFor="title" >Title: </label>
+
+      <div className="w-4/5">
+        <label htmlFor="title" className="font-semibold" >Title</label>
         <input
           type="text"
           value={title}
-          className="input"
+          className="input mt-4"
           id="title"
           name="Title"
-          placeholder="Title"
+          placeholder="Title..."
           onChange={(e) => setTitle(e.target.value)}
         />
       </div>
-      <div className="flex gap-2 items-center">
-        <label htmlFor="location" >Location: </label>
+
+      <div className="w-4/5">
+        <label htmlFor="location" className="font-semibold" >Location</label>
         <input
           type="text"
           value={location}
-          className="input"
+          className="input mt-4"
           id="location"
           name="Location"
           placeholder="Location"
           onChange={(e) => setLocation(e.target.value)}
         />
       </div>
-      <div>
-        <label htmlFor="date">Date Written: </label>
-        <input type="date" value={date} id="date" onChange={(e) => setDate(e.target.value)} className="border-2 p-1" />
+
+      <div className="w-4/5">
+        <label htmlFor="date" className="font-semibold">Date Written</label>
+        <input 
+          type="date" 
+          value={date} 
+          id="date" 
+          onChange={(e) => setDate(e.target.value)} 
+          className="input mt-4" 
+        />
       </div>
-      <div className="flex gap-4">
-        <label htmlFor="favourite">Favourite</label>
+
+      <div className="">
+        <label htmlFor="favourite" className="font-semibold mr-4">Favourite</label>
         <input
           type="checkbox"
           id="favourite"
@@ -217,136 +227,167 @@ const Form = ({
           onChange={() => setFavourite((prev) => !prev)}
         />
       </div>
-      <label
-        htmlFor="imageLand"
-        className={`${
-          loadedLand ? "bg-green-600" : ""
-        } border border-black w-auto p-1 h-auto flex items-center justify-center`}
-      >
-        <h2>Upload Landscape Images</h2>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.8}
-          stroke="currentColor"
-          className="size-10"
+
+      <div className="w-4/5">
+        <label
+          htmlFor="imageLand"
+          className={`${
+            loadedLand ? "bg-green-600" : ""
+          } input flex items-center justify-center gap-3`}
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+          <h2>Upload Landscape Images</h2>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.8}
+            stroke="currentColor"
+            className="size-10"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+            />
+          </svg>
+          <input
+            type="file"
+            id="imageLand"
+            multiple="multiple"
+            onChange={(e) => setFilesLand(e.target.files)}
+            hidden
           />
-        </svg>
-        <input
-          type="file"
-          id="imageLand"
-          multiple="multiple"
-          onChange={(e) => setFilesLand(e.target.files)}
-          hidden
-        />
-      </label>
-      <div className="grid grid-cols-3 gap-4">
-        {mediaLand &&
-          mediaLand.map((link) => (
-            <div key={link} className="rounded-lg w-40 overflow-hidden">
-              <img src={link} alt="" className="object-cover w-full" onClick={(e) => deleteLand(e.target.src)}/>
-            </div>
-          ))}
+        </label>
+        <div className="grid grid-cols-3 gap-4">
+          {mediaLand &&
+            mediaLand.map((link) => (
+              <div key={link} className="rounded-lg w-40 overflow-hidden">
+                <img src={link} alt="" className="object-cover w-full" onClick={(e) => deleteLand(e.target.src)}/>
+              </div>
+            ))}
+        </div>
       </div>
-      <label
-        htmlFor="imagePort"
-        className={`${
-          loadedPort ? "bg-green-600" : ""
-        } border border-black w-auto p-1 h-auto flex items-center justify-center`}
-      >
-        <h2>Upload Portrait Images</h2>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.8}
-          stroke="currentColor"
-          className="size-10 rotate-90"
+
+      <div className="w-4/5">
+        <label
+          htmlFor="imagePort"
+          className={`${
+            loadedPort ? "bg-green-600" : ""
+          } input flex items-center justify-center gap-3`}
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+          <h2>Upload Portrait Images</h2>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.8}
+            stroke="currentColor"
+            className="size-10 rotate-90"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+            />
+          </svg>
+          <input
+            type="file"
+            id="imagePort"
+            multiple="multiple"
+            onChange={(e) => setFilesPort(e.target.files)}
+            hidden
           />
-        </svg>
-        <input
-          type="file"
-          id="imagePort"
-          multiple="multiple"
-          onChange={(e) => setFilesPort(e.target.files)}
-          hidden
-        />
-      </label>
-      <div className="flex gap-4 flex-wrap justify-center w-full">
-        {mediaPort &&
-          mediaPort.map((link) => (
-            <div key={link} className="rounded-lg h-40 overflow-hidden">
-              <img src={link} alt="" className="object-conver h-full" onClick={(e) => deletePort(e.target.src)}/>
-            </div>
-          ))}
+        </label>
+        <div className="flex gap-4 flex-wrap justify-center w-full">
+          {mediaPort &&
+            mediaPort.map((link) => (
+              <div key={link} className="rounded-lg h-40 overflow-hidden">
+                <img src={link} alt="" className="object-conver h-full" onClick={(e) => deletePort(e.target.src)}/>
+              </div>
+            ))}
+        </div>
       </div>
-      <h2>Categories:</h2>
-      <div className="flex gap-2 flex-wrap justify-center">
-        <input
-          type="checkbox"
-          checked={categories.includes("Cycling")}
-          id="cycling"
-          name="cycling"
-          value="Cycling"
-          onChange={(e) => updateCategories(e.target.value)}
-        />
-        <label htmlFor="cycling"> Cycling</label>
-        <input
-          type="checkbox"
-          checked={categories.includes("Language")}
-          id="Language"
-          name="Language"
-          value="Language"
-          onChange={(e) => updateCategories(e.target.value)}
-        />
-        <label htmlFor="Language"> Language</label>
-        <input
-          type="checkbox"
-          checked={categories.includes("Lifestyle")}
-          id="Lifestyle"
-          name="Lifestyle"
-          value="Lifestyle"
-          onChange={(e) => updateCategories(e.target.value)}
-        />
-        <label htmlFor="Lifestyle"> Lifestyle</label>
-        <input
-          type="checkbox"
-          checked={categories.includes("Tourism")}
-          id="Tourism"
-          name="Tourism"
-          value="Tourism"
-          onChange={(e) => updateCategories(e.target.value)}
-        />
-        <label htmlFor="Tourism"> Tourism</label>
-        <input
-          type="checkbox"
-          checked={categories.includes("Thoughts")}
-          id="Thoughts"
-          name="Thoughts"
-          value="Thoughts"
-          onChange={(e) => updateCategories(e.target.value)}
-        />
-        <label htmlFor="Thoughts"> Thoughts</label>
+
+      <div className="w-4/5">
+        <h2 className="font-semibold">Categories</h2>
+        <div className="flex gap-3 flex-wrap justify-between mt-4">
+
+          <label htmlFor="cycling">
+            <input
+              type="checkbox"
+              checked={categories.includes("Cycling")}
+              id="cycling"
+              name="cycling"
+              value="Cycling"
+              onChange={(e) => updateCategories(e.target.value)}
+              className="mr-2"
+            />
+            Cycling
+          </label>
+
+          <label htmlFor="Language"> 
+            <input
+              type="checkbox"
+              checked={categories.includes("Language")}
+              id="Language"
+              name="Language"
+              value="Language"
+              onChange={(e) => updateCategories(e.target.value)}
+              className="mr-2"
+            />
+            Language
+          </label>
+
+          <label htmlFor="Lifestyle">
+            <input
+              type="checkbox"
+              checked={categories.includes("Lifestyle")}
+              id="Lifestyle"
+              name="Lifestyle"
+              value="Lifestyle"
+              onChange={(e) => updateCategories(e.target.value)}
+              className="mr-2"
+            />
+            Lifestyle
+          </label>
+
+          <label htmlFor="Tourism">
+            <input
+              type="checkbox"
+              checked={categories.includes("Tourism")}
+              id="Tourism"
+              name="Tourism"
+              value="Tourism"
+              onChange={(e) => updateCategories(e.target.value)}
+              className="mr-2"
+            />
+            Tourism
+          </label>
+
+          <label htmlFor="Thoughts">
+            <input
+              type="checkbox"
+              checked={categories.includes("Thoughts")}
+              id="Thoughts"
+              name="Thoughts"
+              value="Thoughts"
+              onChange={(e) => updateCategories(e.target.value)}
+              className="mr-2"
+            />
+            Thoughts
+          </label>
+        </div>
       </div>
+
       <ReactQuill
         value={postContent.description}
         onChange={handleQuillEdit}
         theme="snow"
-        className='w-full h-auto h-min-[30vh]'
+        className='w-4/5 h-auto'
         placeholder={postContent}
       />
-      <button type="submit" className="btn back-red text-white">
+
+      <button type="submit" className="btn bg-dark-background text-dark-text">
         Submit
       </button>
     </form>

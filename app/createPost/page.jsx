@@ -69,7 +69,7 @@ const page = () => {
   }
 
   return (
-    <div className="flex justify-center items-center pt-[15vh] pb-[5vh]">
+    <div className="flex justify-center items-center pt-[25vh] pb-[10vh]">
       {session?.user ? (
         <Form
           postContent={postContent}

@@ -54,13 +54,19 @@ const Hero = () => {
       viewport={{ once: true, amount: 0.25 }}
       className="h-[128vh] md:h-[90vh] w-full"
     >
-      <div className="z-10 h-[650px] w-[650px] rounded-full dark:bg-dark-highlight bg-light-highlight absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <div 
+        // variants={slideIn("left", "tween", 0, 1.5)}
+        className="z-10 h-[650px] w-[650px] rounded-full dark:bg-dark-highlight bg-light-highlight absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      >
       </div>
-      <div className="text-[8rem] font-semibold z-20 absolute top-1/2 left-1/2 -translate-x-[500px] -translate-y-[140px]">
+      <motion.div 
+        // variants={textVariant(0)}
+        className="text-[8rem] font-semibold z-20 absolute top-1/2 left-1/2 -translate-x-[500px] -translate-y-[140px]"
+      >
         <span className="dark:text-dark-text text-light-text">BO</span>
         <span className="text-dark-text">UKEN</span>
-      </div>
-      <div className="italic absolute z-20 left-1/2 top-1/2 -translate-x-1/2 translate-y-[50px] text-dark-text text-2xl">
+      </motion.div>
+      <div className="italic absolute z-20 left-1/2 top-1/2 -translate-x-1/2 translate-y-[50px] text-dark-text text-4xl">
         A site for exploration
       </div>
       <div className="vertical-text text-[8rem] font-semibold absolute right-48 bottom-16">

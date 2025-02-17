@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import "./globals.css";
 import Header from "@/components/Header";
 import Provider from "@/components/Provider";
+import DarkModeButton from "@/components/DarkModeButton";
 
 // const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
           <Header />
           {children}
           <Footer />
+          <DarkModeButton />
         </Provider>
       </body>
     </html>

@@ -24,10 +24,13 @@ body {
 }
 
 .input {
-  border: 1px black solid;
-  padding: 3px 10px;
+  padding: 8px 15px;
   width: 100%;
+  box-shadow: 0px 0px 2px var(--dark-background);
+  border-radius: 10px;
 }
+
+
 
 .background {
   -webkit-background-clip: text;
@@ -60,4 +63,8 @@ body {
 
 .light-red-shadow {
   box-shadow: 0px 0px 30px 5px var(--light-highlight);
+}
+
+.ql-editor {
+  min-height: 30vh;
 }

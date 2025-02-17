@@ -41,10 +41,10 @@ const page = (pageProps) => {
     }
 
   return (
-    <div className='back-blue pb-10'>
+    <section className='pb-10 dark:bg-dark-background bg-light-background'>
     {blogPost && (
         <>
-        <main className='relative w-[90vw] sm:w-3/4 mx-auto py-20 px-10 flex flex-col mt-[50vh] gap-2 items-center justify-center back-gray z-10 shadow-md'>
+        <main className='relative w-[90vw] sm:w-3/4 mx-auto py-20 px-10 flex flex-col mt-[50vh] gap-2 items-center justify-center bg-light-background text-light-text z-20 shadow-lg'>
             <h1 className='text-5xl font-semibold mb-6'>{blogPost.title}</h1>
             <div className='flex gap-4 items-center'>
                 <img src={blogPost.user?.image} className='w-12 h-12 rounded-full' />
@@ -94,12 +94,12 @@ const page = (pageProps) => {
                 </div>
             )}
         </main>
-        <div className='h-[80vh] absolute top-0 left-0 w-full overflow-hidden flex items-center z-0'>
+        <div className='h-[90vh] absolute top-0 left-0 w-full overflow-hidden flex items-center z-0'>
             <img src={blogPost.imgsLand[0]} className='object-cover h-full w-full z-0' />
         </div>
         </>
     )}
-    </div>
+    </section>
   )
 }
 
