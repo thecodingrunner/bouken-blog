@@ -16,16 +16,17 @@ const Form = dynamic(() => import("../../../components/Form"), {
 });
 
 const EditPost = (searchParams) => {
-  const [postContent, setPostContent] = useState("");
-  const [title, setTitle] = useState("");
-  const [categories, setCategories] = useState([]);
-  const [filesLand, setFilesLand] = useState([]);
-  const [filesPort, setFilesPort] = useState([]);
-  const [mediaLand, setMediaLand] = useState("");
-  const [mediaPort, setMediaPort] = useState("");
-  const [location, setLocation] = useState('');
-  const [favourite, setFavourite] = useState(false);
-  const [date, setDate] = useState('');
+  const [post, setPost] = useState({
+    title: "",
+    location: "",
+    date: "",
+    favourite: false,
+    categories: [],
+    postContent: {description: ""},
+    user: "",
+    imgsLand: [],
+    imgsPort: [],
+  })
 
   const { data: session } = useSession();
 
@@ -36,19 +37,22 @@ const EditPost = (searchParams) => {
   useEffect(() => {
     const getPromptDetails = async () => {
       const response = await fetch(`/api/post/${postId}`);
-      const post = await response.json();
+      const fetchedPost = await response.json();
 
 
       console.log(post.imgsLand)
-      setPostContent({description: post.postContent})
-      setTitle(post.title)
-      setDate(post.date)
-      setFavourite(post.favourite)
-      setCategories(post.categories)
-      setMediaLand(post.imgsLand)
-      setMediaPort(post.imgsPort)
-      setLocation(post.location)
-      setFavourite(post.favourite)
+
+      setPost({
+        title: fetchedPost.title,
+        location: fetchedPost.location,
+        date: fetchedPost.date,
+        favourite: fetchedPost.favourite,
+        categories: fetchedPost.categories,
+        postContent: {description: fetchedPost.postContent.description},
+        user: fetchedPost.user,
+        imgsLand: fetchedPost.imgsLand,
+        imgsPort: fetchedPost.imgsPort,
+      })
     };
 
     if (postId) getPromptDetails();
@@ -57,26 +61,26 @@ const EditPost = (searchParams) => {
   async function editPost(e) {
     e.preventDefault();
 
-    const post = {
-      title,
-      location,
-      date,
-      favourite,
-      categories,
-      postContent: postContent,
+    const toPost = {
+      title: post.title,
+      location: post.location,
+      date: post.date,
+      favourite: post.favourite,
+      categories: post.categories,
+      postContent: post.postContent.description,
+      imgsLand: post.imgsLand,
+      imgsPort: post.imgsPort,
       user: session?.user.id,
-      imgsLand: mediaLand,
-      imgsPort: mediaPort,
     };
 
-    console.log(post);
+    console.log(toPost);
 
     const response = await fetch(`/api/post/${postId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(post),
+      body: JSON.stringify(toPost),
     });
 
     const result = await response.json();
@@ -88,27 +92,9 @@ const EditPost = (searchParams) => {
     <div className="flex justify-center items-center pt-[15vh] pb-[5vh]">
       {session?.user ? (
         <Form
-          postContent={postContent}
-          title={title}
-          categories={categories}
-          filesLand={filesLand}
-          filesPort={filesPort}
-          setPostContent={setPostContent}
-          setTitle={setTitle}
-          setCategories={setCategories}
-          setFilesLand={setFilesLand}
-          setFilesPort={setFilesPort}
+          post={post}
+          setPost={setPost}
           handleSubmit={editPost}
-          mediaLand={mediaLand}
-          setMediaLand={setMediaLand}
-          mediaPort={mediaPort}
-          setMediaPort={setMediaPort}
-          location={location}
-          setLocation={setLocation}
-          favourite={favourite}
-          setFavourite={setFavourite}
-          date={date}
-          setDate={setDate}
         />
       ) : (
         <div>Please log in to create a post</div>

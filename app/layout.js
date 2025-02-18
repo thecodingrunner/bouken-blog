@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
       </head>
-      <body className="overflow-x-hidden dark:bg-dark-background bg-light-background dark:text-dark-text text-light-text">
+      <body className="overflow-x-hidden dark:bg-dark-background bg-light-background dark:text-dark-text text-light-text overflow-y-auto">
         <Provider>
           <Header />
           {children}

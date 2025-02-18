@@ -16,48 +16,39 @@ import { app } from "@/utils/firebase";
 const storage = getStorage(app);
 
 const Form = ({
-  postContent,
-  title,
-  categories,
-  filesLand,
-  filesPort,
-  setPostContent,
-  setTitle,
-  setCategories,
-  setFilesLand,
-  setFilesPort,
   handleSubmit,
-  mediaLand,
-  mediaPort,
-  setMediaLand,
-  setMediaPort,
-  location,
-  setLocation,
-  favourite,
-  setFavourite,
-  date,
-  setDate
+  post,
+  setPost,
 }) => {
   const [loadedLand, setLoadedLand] = useState(false);
   const [loadedPort, setLoadedPort] = useState(false);
 
+  const [filesLand, setFilesLand] = useState([]);
+  const [filesPort, setFilesPort] = useState([]);
+
   function updateCategories(value) {
-    setCategories((prevCategories) => {
-      if (prevCategories.includes(value)) {
-        // If the value is already in the array, remove it
-        return prevCategories.filter((category) => category !== value);
-      } else {
-        // If the value is not in the array, add it
-        return [...prevCategories, value];
+    setPost((prev) => {
+        return {
+          ...prev,
+          categories: (prevCategories) => {
+            if (prevCategories.includes(value)) {
+              // If the value is already in the array, remove it
+              return prevCategories.filter((category) => category !== value);
+            } else {
+              // If the value is not in the array, add it
+              return [...prevCategories, value];
+            }
+          }
+        }
       }
-    });
+    )
   }
 
-  const handleQuillEdit = (value) => {
-    setPostContent((prev) => {
+  const handleQuillEdit = (content) => {
+    setPost((prev) => {
       return {
         ...prev,
-        description: value,
+        postContent: { description: content },
       };
     });
   };
@@ -73,8 +64,13 @@ const Form = ({
       // Delete the file
       deleteObject(deleteRef).then(() => {
         console.log('deleted landscape image successfully')
-        setMediaLand(prev => prev.filter(link => link != src))
-        console.log(mediaLand)
+        setPost((prev) => {
+          return {
+            ...prev,
+            imgsLand: prev.imgsLand.filter(link => link != src)
+          }
+        })
+        console.log(post.imgsLand)
       }).catch((error) => {
         console.log('unable to delete landscape image', error)
       });
@@ -92,9 +88,14 @@ const Form = ({
 
       // Delete the file
       deleteObject(deleteRef).then(() => {
-        console.log('deleted portrait image successfully')
-        setMediaPort(prev => prev.filter(link => link != src))
-        console.log(mediaPort)
+        console.log('deleted portrait image successfully');
+        setPost((prev) => {
+          return {
+            ...prev,
+            imgsPort: prev.imgsPort.filter(link => link != src)
+          }
+        })
+        console.log(post.imgsPort)
       }).catch((error) => {
         console.log('unable to delete portait image', error)
       });
@@ -123,9 +124,12 @@ const Form = ({
         () => {
           // Upload completed successfully, now we can get the download URL
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            setMediaPort((prevMedia) => {
-              return [...prevMedia, downloadURL];
-            });
+            setPost((prev) => {
+              return {
+                ...prev,
+                imgsPort: [...prev.imgsPort, downloadURL]
+              }
+            })
           });
         }
       );
@@ -159,10 +163,14 @@ const Form = ({
         () => {
           // Upload completed successfully, now we can get the download URL
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            setMediaLand((prevMedia) => {
-              return [...prevMedia, downloadURL];
-            });
+            setPost((prev) => {
+              return {
+                ...prev,
+                imgsLand: [...prev.imgsLand, downloadURL]
+              }
+            })
           });
+
         }
       );
     };
@@ -184,12 +192,17 @@ const Form = ({
         <label htmlFor="title" className="font-semibold" >Title</label>
         <input
           type="text"
-          value={title}
+          value={post.title}
           className="input mt-4"
           id="title"
           name="Title"
           placeholder="Title..."
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={(e) => setPost((prev) => {
+            return {
+              ...prev,
+              title: e.target.value
+            }
+          })}
         />
       </div>
 
@@ -197,12 +210,17 @@ const Form = ({
         <label htmlFor="location" className="font-semibold" >Location</label>
         <input
           type="text"
-          value={location}
+          value={post.location}
           className="input mt-4"
           id="location"
           name="Location"
           placeholder="Location"
-          onChange={(e) => setLocation(e.target.value)}
+          onChange={(e) => setPost((prev) => {
+            return {
+              ...prev,
+              location: e.target.value
+            }
+          })}
         />
       </div>
 
@@ -210,9 +228,14 @@ const Form = ({
         <label htmlFor="date" className="font-semibold">Date Written</label>
         <input 
           type="date" 
-          value={date} 
+          value={post.date} 
           id="date" 
-          onChange={(e) => setDate(e.target.value)} 
+          onChange={(e) => setPost((prev) => {
+            return {
+              ...prev,
+              date: e.target.value
+            }
+          })}
           className="input mt-4" 
         />
       </div>
@@ -223,8 +246,13 @@ const Form = ({
           type="checkbox"
           id="favourite"
           name="favourite"
-          checked={favourite}
-          onChange={() => setFavourite((prev) => !prev)}
+          checked={post.favourite}
+          onChange={(e) => setPost((prev) => {
+            return {
+              ...prev,
+              favourite: !prev.favourite
+            }
+          })}
         />
       </div>
 
@@ -232,7 +260,7 @@ const Form = ({
         <label
           htmlFor="imageLand"
           className={`${
-            loadedLand ? "bg-green-600" : ""
+            loadedLand ? "green-shadow" : ""
           } input flex items-center justify-center gap-3`}
         >
           <h2>Upload Landscape Images</h2>
@@ -258,11 +286,11 @@ const Form = ({
             hidden
           />
         </label>
-        <div className="grid grid-cols-3 gap-4">
-          {mediaLand &&
-            mediaLand.map((link) => (
+        <div className="flex gap-4 flex-wrap justify-center w-full  mt-8">
+          {post.imgsLand &&
+            post.imgsLand.map((link) => (
               <div key={link} className="rounded-lg w-40 overflow-hidden">
-                <img src={link} alt="" className="object-cover w-full" onClick={(e) => deleteLand(e.target.src)}/>
+                <img src={link} alt="" className="object-cover h-full" onClick={(e) => deleteLand(e.target.src)}/>
               </div>
             ))}
         </div>
@@ -272,7 +300,7 @@ const Form = ({
         <label
           htmlFor="imagePort"
           className={`${
-            loadedPort ? "bg-green-600" : ""
+            loadedPort ? "green-shadow" : ""
           } input flex items-center justify-center gap-3`}
         >
           <h2>Upload Portrait Images</h2>
@@ -298,9 +326,9 @@ const Form = ({
             hidden
           />
         </label>
-        <div className="flex gap-4 flex-wrap justify-center w-full">
-          {mediaPort &&
-            mediaPort.map((link) => (
+        <div className="flex gap-4 flex-wrap justify-center w-full mt-8">
+          {post.imgsPort &&
+            post.imgsPort.map((link) => (
               <div key={link} className="rounded-lg h-40 overflow-hidden">
                 <img src={link} alt="" className="object-conver h-full" onClick={(e) => deletePort(e.target.src)}/>
               </div>
@@ -315,11 +343,16 @@ const Form = ({
           <label htmlFor="cycling">
             <input
               type="checkbox"
-              checked={categories.includes("Cycling")}
+              checked={post.categories.includes("Cycling")}
               id="cycling"
               name="cycling"
               value="Cycling"
-              onChange={(e) => updateCategories(e.target.value)}
+              onChange={(e) => setPost((prev) => {
+                return {
+                  ...prev,
+                  categories: [...prev.categories, e.target.value]
+                }
+              })}
               className="mr-2"
             />
             Cycling
@@ -328,11 +361,16 @@ const Form = ({
           <label htmlFor="Language"> 
             <input
               type="checkbox"
-              checked={categories.includes("Language")}
+              checked={post.categories.includes("Language")}
               id="Language"
               name="Language"
               value="Language"
-              onChange={(e) => updateCategories(e.target.value)}
+              onChange={(e) => setPost((prev) => {
+                return {
+                  ...prev,
+                  categories: [...prev.categories, e.target.value]
+                }
+              })}
               className="mr-2"
             />
             Language
@@ -341,11 +379,16 @@ const Form = ({
           <label htmlFor="Lifestyle">
             <input
               type="checkbox"
-              checked={categories.includes("Lifestyle")}
+              checked={post.categories.includes("Lifestyle")}
               id="Lifestyle"
               name="Lifestyle"
               value="Lifestyle"
-              onChange={(e) => updateCategories(e.target.value)}
+              onChange={(e) => setPost((prev) => {
+                return {
+                  ...prev,
+                  categories: [...prev.categories, e.target.value]
+                }
+              })}
               className="mr-2"
             />
             Lifestyle
@@ -354,11 +397,16 @@ const Form = ({
           <label htmlFor="Tourism">
             <input
               type="checkbox"
-              checked={categories.includes("Tourism")}
+              checked={post.categories.includes("Tourism")}
               id="Tourism"
               name="Tourism"
               value="Tourism"
-              onChange={(e) => updateCategories(e.target.value)}
+              onChange={(e) => setPost((prev) => {
+                return {
+                  ...prev,
+                  categories: [...prev.categories, e.target.value]
+                }
+              })}
               className="mr-2"
             />
             Tourism
@@ -367,11 +415,16 @@ const Form = ({
           <label htmlFor="Thoughts">
             <input
               type="checkbox"
-              checked={categories.includes("Thoughts")}
+              checked={post.categories.includes("Thoughts")}
               id="Thoughts"
               name="Thoughts"
               value="Thoughts"
-              onChange={(e) => updateCategories(e.target.value)}
+              onChange={(e) => setPost((prev) => {
+                return {
+                  ...prev,
+                  categories: [...prev.categories, e.target.value]
+                }
+              })}
               className="mr-2"
             />
             Thoughts
@@ -380,11 +433,11 @@ const Form = ({
       </div>
 
       <ReactQuill
-        value={postContent.description}
+        value={post.postContent.description}
         onChange={handleQuillEdit}
         theme="snow"
         className='w-4/5 h-auto'
-        placeholder={postContent}
+        placeholder={post.postContent.description}
       />
 
       <button type="submit" className="btn bg-dark-background text-dark-text">

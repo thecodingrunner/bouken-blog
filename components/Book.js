@@ -2,7 +2,7 @@ import cover from '../public/gaijinjuudancover.png'
 
 const Book = () => {
   return (
-    <section className="flex flex-col gap-4 relative h-screen w-screen dark:text-dark-text text-light-text p-20">
+    <section className="flex flex-col gap-4 relative h-screen w-screen dark:text-dark-text text-light-text">
         <h2 className="text-[7rem] font-semibold pl-6">A Foreigners Traverse</h2>
         <div className='flex gap-10'>
             <h2 className="w-auto text-[8rem] font-semibold vertical-text text-center">外人縦断</h2>

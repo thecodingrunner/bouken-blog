@@ -22,17 +22,17 @@ const Form = dynamic(() => import("../../components/Form"), {
 
 
 const page = () => {
-  const [postContent, setPostContent] = useState("");
-  const [title, setTitle] = useState("");
-  const [categories, setCategories] = useState([]);
-  const [filesLand, setFilesLand] = useState([]);
-  const [filesPort, setFilesPort] = useState([]);
-  const [mediaLand, setMediaLand] = useState("");
-  const [mediaPort, setMediaPort] = useState("");
-  const [location, setLocation] = useState('');
-  const [favourite, setFavourite] = useState(false);
-  const [date, setDate] = useState('')
-  // const storage = getStorage(app);
+  const [post, setPost] = useState({
+    title: "",
+    location: "",
+    date: "",
+    favourite: false,
+    categories: [],
+    postContent: {description: ""},
+    user: "",
+    imgsLand: [],
+    imgsPort: [],
+  })
 
   const { data: session } = useSession();
 
@@ -41,26 +41,26 @@ const page = () => {
   async function submitPost(e) {
     e.preventDefault();
 
-    const post = {
-      title,
-      location,
-      date,
-      favourite,
-      categories,
-      postContent: postContent.description,
+    const toPost = {
+      title: post.title,
+      location: post.location,
+      date: post.date,
+      favourite: post.favourite,
+      categories: post.categories,
+      postContent: post.postContent.description,
+      imgsLand: post.imgsLand,
+      imgsPort: post.imgsPort,
       user: session?.user.id,
-      imgsLand: mediaLand,
-      imgsPort: mediaPort,
     };
 
-    console.log(post);
+    console.log(toPost);
 
     const response = await fetch("/api/post/new", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(post),
+      body: JSON.stringify(toPost),
     });
 
     const result = await response.json();
@@ -72,27 +72,9 @@ const page = () => {
     <div className="flex justify-center items-center pt-[25vh] pb-[10vh]">
       {session?.user ? (
         <Form
-          postContent={postContent}
-          title={title}
-          categories={categories}
-          filesLand={filesLand}
-          filesPort={filesPort}
-          setPostContent={setPostContent}
-          setTitle={setTitle}
-          setCategories={setCategories}
-          setFilesLand={setFilesLand}
-          setFilesPort={setFilesPort}
           handleSubmit={submitPost}
-          mediaLand={mediaLand}
-          setMediaLand={setMediaLand}
-          mediaPort={mediaPort}
-          setMediaPort={setMediaPort}
-          location={location}
-          setLocation={setLocation}
-          favourite={favourite}
-          setFavourite={setFavourite}
-          date={date}
-          setDate={setDate}
+          post={post}
+          setPost={setPost}
         />
       ) : (
         <div>Please log in to create a post</div>

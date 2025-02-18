@@ -36,6 +36,7 @@ const Header = () => {
         setLastScrollY(currentScrollY);
       };
 
+      console.log("triggered");
 
       window.addEventListener("scroll", handleScroll);
       return () => window.removeEventListener("scroll", handleScroll);
@@ -56,7 +57,7 @@ const Header = () => {
     },[])
 
   return (
-    <motion.div
+    <motion.nav
       variants={staggerContainer}
       initial={{ y: "-100%"}}
       whileInView="show"
@@ -69,9 +70,9 @@ const Header = () => {
         <Link href='/featured' className="py-8 pt-20" onClick={() => setDisplayMenu(prev => !prev)}>Featured</Link>
         <Link href='/cycling' className="py-8" onClick={() => setDisplayMenu(prev => !prev)}>Cycling</Link>
       </div>
-      <motion.nav variants={slideIn('down', 'tween', 0, 1.75)} className={`${isHomePage ? "bg-transparent" : "dark:bg-dark-background bg-light-background"} flex justify-between items-center py-12 px-20 z-40 w-full`}>
+      <motion.div variants={slideIn('down', 'tween', 0, 1.75)} className={`${isHomePage ? "bg-transparent" : "dark:bg-dark-background bg-light-background"} flex justify-between items-center py-12 px-12 z-40 w-full`}>
         
-        <Link href={'/'} className="ml-4 relative left-0 font-medium text-4xl tracking-tight translate-x-24">
+        <Link href={'/'} className="ml-4 relative left-0 font-medium text-4xl tracking-tight translate-x-12">
             <div className="relative">
               <div className="h-24 w-24 dark:bg-dark-highlight bg-light-highlight rounded-full absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"></div>
               <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2">
@@ -120,8 +121,8 @@ const Header = () => {
           )}
         </div>
 
-      </motion.nav>
-    </motion.div>
+      </motion.div>
+    </motion.nav>
   )
 }
 

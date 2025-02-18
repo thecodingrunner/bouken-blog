@@ -10,7 +10,7 @@ import Hero from "@/components/Hero";
 export default function Home() {
 
   return (
-    <main className="pt-48 back-blue overflow-hidden">
+    <main className="">
       <Hero />
       <About />
       <Book />
