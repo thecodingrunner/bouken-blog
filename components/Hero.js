@@ -56,12 +56,12 @@ const Hero = () => {
     >
       <div 
         // variants={slideIn("left", "tween", 0, 1.5)}
-        className="z-10 h-[650px] w-[650px] rounded-full dark:bg-dark-highlight bg-light-highlight absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 dark:glow"
+        className="z-10 h-[90vh] aspect-square rounded-full dark:bg-dark-highlight bg-light-highlight absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 dark:glow"
       >
       </div>
       <div 
         // variants={textVariant(0)}
-        className="text-[8rem] font-semibold z-20 absolute top-1/2 left-1/2 -translate-x-[500px] -translate-y-[140px]"
+        className="text-[8rem] font-semibold z-20 absolute top-1/2 left-1/2 -translate-x-[505px] -translate-y-[140px]"
       >
         <span className="dark:text-dark-text text-light-text">BO</span>
         <span className="text-dark-text">UKEN</span>
