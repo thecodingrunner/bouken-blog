@@ -2,6 +2,7 @@
 
 import PostCard from "@/components/PostCard";
 import { useEffect, useState } from "react"
+import BlogCarousel from "./BlogCarousel";
 
 const Posts = ({ category }) => {
     const [posts, setPosts] = useState(null)
@@ -22,7 +23,8 @@ const Posts = ({ category }) => {
     },[])
 
   return (
-    <div className="w-screen flex flex-col gap-10 items-center pt-20">
+    <div className="w-screen flex flex-col gap-10 items-center pt-10">
+        {posts && <BlogCarousel posts={posts} />}
         <h1 className="text-4xl capitalize">Bouken Blog</h1>
         {posts ? (
             <div className="mx-auto w-[70vw] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">

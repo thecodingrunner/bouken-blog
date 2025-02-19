@@ -64,7 +64,7 @@ const Hero = () => {
         className="text-[8rem] font-semibold z-20 absolute top-1/2 left-1/2 -translate-x-[505px] -translate-y-[140px]"
       >
         <span className="dark:text-dark-text text-light-text">BO</span>
-        <span className="text-dark-text">UKEN</span>
+        <span className="dark:text-light-text text-dark-text">UKEN</span>
       </div>
       <div className="italic absolute z-20 left-1/2 top-1/2 -translate-x-1/2 translate-y-[50px] text-dark-text text-4xl">
         A site for exploration

@@ -77,7 +77,7 @@ const Header = () => {
               <div className="h-24 w-24 dark:bg-dark-highlight bg-light-highlight rounded-full absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"></div>
               <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2">
                 <span className="dark:text-white text-light-text">B</span>
-                <span className="text-white">OUKE</span>
+                <span className="dark:text-light-text text-white">OUKE</span>
                 <span className="dark:text-white text-light-text">N</span>
               </div>
             </div>
