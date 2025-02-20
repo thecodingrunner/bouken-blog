@@ -64,13 +64,13 @@ const Header = () => {
       viewport={{ once: true, amount: 0.25 }}
       animate={{ y: hidden ? "-100%" : "0%" }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className="fixed top-0 left-0 h-48 w-full transition-all z-40"
+      className="fixed top-0 left-0 h-48 w-full transition-all z-30"
     >
-      <div className={`md:hidden absolute left-0 flex flex-col items-center gap-6 bg-white text-red text-3xl transition-all ease-in-out duration-500 ${displayMenu ? 'top-[5vh]' : '-top-full'} z-40`}>
+      <div className={`md:hidden absolute left-0 flex flex-col items-center gap-6 bg-white text-red text-3xl transition-all ease-in-out duration-500 ${displayMenu ? 'top-[5vh]' : '-top-full'} z-30`}>
         <Link href='/featured' className="py-8 pt-20" onClick={() => setDisplayMenu(prev => !prev)}>Featured</Link>
         <Link href='/cycling' className="py-8" onClick={() => setDisplayMenu(prev => !prev)}>Cycling</Link>
       </div>
-      <motion.div variants={slideIn('down', 'tween', 0, 1.75)} className={`${isHomePage ? "bg-transparent" : "dark:bg-dark-background bg-light-background"} flex justify-between items-center py-12 px-12 z-40 w-full`}>
+      <motion.div variants={slideIn('down', 'tween', 0, 1.75)} className={`${isHomePage ? "bg-transparent" : "dark:bg-dark-background bg-light-background"} flex justify-between items-center py-12 px-12 z-30 w-full`}>
         
         <Link href={'/'} className="ml-4 relative left-0 font-medium text-4xl tracking-tight translate-x-12">
             <div className="relative">
@@ -85,8 +85,8 @@ const Header = () => {
 
         <div className="flex items-center justify-center gap-6">
           <div className="md:flex gap-6 justify-center items-center hidden dark:text-dark-text text-light-text italic text-lg">
-            <Link href=''>Book</Link>
-            <Link href=''>Drawings</Link>
+            <Link href='#Book'>Book</Link>
+            <Link href='#Drawings'>Drawings</Link>
             <Link href='/all'>Blog</Link>
           </div>
           <button className="flex md:hidden" onClick={() => setDisplayMenu(prev => !prev)}>

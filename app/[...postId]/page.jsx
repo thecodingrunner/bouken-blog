@@ -44,7 +44,7 @@ const page = (pageProps) => {
     <section className='pb-10 dark:bg-dark-background bg-light-background'>
     {blogPost && (
         <>
-        <main className='relative w-[90vw] sm:w-3/4 mx-auto py-20 px-10 flex flex-col mt-[50vh] gap-2 items-center justify-center bg-light-background text-light-text z-20 shadow-lg'>
+        <main className='relative w-[90vw] sm:w-3/4 mx-auto py-20 px-10 flex flex-col mt-[50vh] gap-2 items-center justify-center bg-light-background text-light-text shadow-lg'>
             <h1 className='text-5xl font-semibold mb-6'>{blogPost.title}</h1>
             <div className='flex gap-4 items-center'>
                 <img src={blogPost.user?.image} className='w-12 h-12 rounded-full' />
@@ -74,9 +74,9 @@ const page = (pageProps) => {
             </div>
 
             {view && (
-                <div className='fixed left-0 top-0 h-full w-full flex justify-center items-center bg-black bg-opacity-25 z-50' onClick={() => setView(null)}>
-                    <div className='h-[80vh] overflow-hidden z-50'>
-                        <img src={view} className='object-contain h-full z-50' />
+                <div className='fixed left-0 top-0 h-full w-full flex justify-center items-center bg-black bg-opacity-25 z-40' onClick={() => setView(null)}>
+                    <div className='h-[80vh] overflow-hidden z-40'>
+                        <img src={view} className='object-contain h-full z-40' />
                     </div>
                 </div>
             )}

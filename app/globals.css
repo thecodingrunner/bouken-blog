@@ -43,6 +43,10 @@ body {
   font-family: "Inter", serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .btn {
   padding: 0.5rem 1rem;
 }
@@ -117,4 +121,24 @@ body {
 
 .apple-box {
   box-shadow: 2px 4px 12px #00000014;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  @apply dark:bg-dark-background bg-light-background;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-light-highlight;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-dark-highlight;
 }

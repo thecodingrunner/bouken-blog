@@ -11,7 +11,7 @@ const Book = () => {
     const [info, setInfo] = useState(false);
 
   return (
-    <section className="flex flex-col gap-8 h-screen w-screen dark:text-dark-text text-light-text px-20 justify-center">
+    <section className="flex flex-col gap-8 h-screen w-screen dark:text-dark-text text-light-text px-20 justify-center" id='Book'>
         {/* <h2 className="text-[7rem] font-semibold pl-6">A Foreigner's Traverse</h2> */}
         <div className='flex gap-10 justify-center items-center'>
                 <h2 className={`${translate ? "text-[3rem] max-w-[20rem]" : "text-[8rem] vertical-text"} w-auto font-semibold text-center`}>

@@ -2,10 +2,8 @@
 
 import About from "@/components/About";
 import Book from "@/components/Book";
-import Carousel from "@/components/Carousel";
-import DarkModeButton from "@/components/DarkModeButton";
-import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
+import DrawingsCarousel from "@/components/DrawingsCarousel"
 
 export default function Home() {
 
@@ -14,7 +12,7 @@ export default function Home() {
       <Hero />
       <About />
       <Book />
-      <Carousel />
+      <DrawingsCarousel />
     </main>
   );
 }
