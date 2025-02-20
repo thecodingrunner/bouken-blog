@@ -66,11 +66,37 @@ const Header = () => {
       transition={{ duration: 0.3, ease: "easeInOut" }}
       className="fixed top-0 left-0 h-48 w-full transition-all z-30"
     >
-      <div className={`md:hidden absolute left-0 flex flex-col items-center gap-6 bg-white text-red text-3xl transition-all ease-in-out duration-500 ${displayMenu ? 'top-[5vh]' : '-top-full'} z-30`}>
-        <Link href='/featured' className="py-8 pt-20" onClick={() => setDisplayMenu(prev => !prev)}>Featured</Link>
-        <Link href='/cycling' className="py-8" onClick={() => setDisplayMenu(prev => !prev)}>Cycling</Link>
+      <div className={`md:hidden absolute left-0 flex flex-col items-center w-full py-8 italic gap-4 bg-white text-red text-lg transition-all ease-in-out duration-500 z-30 ${displayMenu ? 'top-0' : '-top-[200%]'}`}>
+        <Link href='#Book'>Book</Link>
+        <Link href='#Drawings'>Drawings</Link>
+        <Link href='/all'>Blog</Link>
+        {session?.user ? (
+              <div className='flex items-center gap-4 md:hidden'>
+                <Link href={'/createPost'} className="dark:text-dark-text text-light-text italic text-lg">Create Post</Link>
+                <button type='button' className='btn dark:bg-dark-text dark:text-dark-background bg-light-text text-light-background text-lg' onClick={signOut}>Sign Out</button>
+                <button onClick={() => setDisplayProfile(prev => !prev)}>
+                  <Image src={session?.user.image} width={37} height={37} alt='profile' className='rounded-full' />
+                </button>
+                {displayProfile && (
+                  <div className="p-4 absolute top-[11vh] bg-white right-[5vw] flex flex-col gap-3 justify-center shadow-lg lg:hidden">
+                    <Link href={'/createPost'} className="mx-auto text-center text-black" onClick={() => setDisplayProfile(prev => !prev)}>Create Post</Link>
+                    <button type='button' className='btn back-red text-white' onClick={() => {
+                      signOut()
+                      setDisplayProfile(prev => !prev)
+                    }}>Sign Out</button>
+                  </div>
+                )}
+              </div>
+          ) : (
+              <div className='flex items-center gap-4 md:hidden'>
+                {providers && (
+                    Object.values(providers).map((provider) => (
+                    <button type='button' className='btn dark:bg-dark-text dark:text-dark-background bg-light-text text-light-background text-lg' key={provider.name} onClick={() => signIn(provider.id)}>Log in</button>
+                )))}
+              </div>
+          )}
       </div>
-      <motion.div variants={slideIn('down', 'tween', 0, 1.75)} className={`${isHomePage ? "bg-transparent" : "dark:bg-dark-background bg-light-background"} flex justify-between items-center py-12 px-12 z-30 w-full`}>
+      <motion.div variants={slideIn('down', 'tween', 0, 1.75)} className={`${isHomePage ? "md:bg-transparent dark:bg-dark-background bg-light-background p-10" : "dark:bg-dark-background bg-light-background"} flex justify-between items-center md:p-12 z-20 w-full`}>
         
         <Link href={'/'} className="ml-4 relative left-0 font-medium text-4xl tracking-tight translate-x-12">
             <div className="relative">
@@ -89,13 +115,8 @@ const Header = () => {
             <Link href='#Drawings'>Drawings</Link>
             <Link href='/all'>Blog</Link>
           </div>
-          <button className="flex md:hidden" onClick={() => setDisplayMenu(prev => !prev)}>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor" className="size-10">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-          </button>
           {session?.user ? (
-              <div className='flex items-center gap-4'>
+              <div className='items-center gap-4 hidden md:flex'>
                 <Link href={'/createPost'} className="dark:text-dark-text text-light-text italic text-lg">Create Post</Link>
                 <button type='button' className='btn dark:bg-dark-text dark:text-dark-background bg-light-text text-light-background text-lg' onClick={signOut}>Sign Out</button>
                 <button onClick={() => setDisplayProfile(prev => !prev)}>
@@ -112,13 +133,18 @@ const Header = () => {
                 )}
               </div>
           ) : (
-              <div className='flex items-center gap-4'>
+              <div className='items-center gap-4 hidden md:flex'>
                 {providers && (
                     Object.values(providers).map((provider) => (
                     <button type='button' className='btn dark:bg-dark-text dark:text-dark-background bg-light-text text-light-background text-lg' key={provider.name} onClick={() => signIn(provider.id)}>Log in</button>
                 )))}
               </div>
           )}
+          <button className="flex md:hidden" onClick={() => setDisplayMenu(prev => !prev)}>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor" className="size-10 z-30">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+          </button>
         </div>
 
       </motion.div>
