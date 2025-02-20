@@ -184,7 +184,7 @@ const Form = ({
 
   return (
     <form
-      className="w-3/5 flex flex-col gap-8 items-center justify-between text-lg bg-white py-16 shadow-xl rounded-3xl text-light-text"
+      className="w-4/5 lg:w-3/5 flex flex-col gap-8 items-center justify-between text-lg bg-white py-16 shadow-xl rounded-3xl text-light-text"
       onSubmit={(e) => handleSubmit(e)}
     >
 

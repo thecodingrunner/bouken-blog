@@ -71,7 +71,7 @@ const Header = () => {
         <Link href='#Drawings'>Drawings</Link>
         <Link href='/all'>Blog</Link>
         {session?.user ? (
-              <div className='flex items-center gap-4 md:hidden'>
+              <div className='flex items-center gap-4 md:hidden flex-col'>
                 <Link href={'/createPost'} className="dark:text-dark-text text-light-text italic text-lg">Create Post</Link>
                 <button type='button' className='btn dark:bg-dark-text dark:text-dark-background bg-light-text text-light-background text-lg' onClick={signOut}>Sign Out</button>
                 <button onClick={() => setDisplayProfile(prev => !prev)}>
