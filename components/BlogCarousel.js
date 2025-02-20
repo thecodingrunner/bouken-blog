@@ -10,17 +10,19 @@ import { GoDot } from "react-icons/go";
 const BlogCarousel = ({ posts }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
+    const [postsNumber, setPostsNumber] = useState(8);
+
     const nextSlide = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % 4);
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % (postsNumber - 1));
     };
 
     const prevSlide = () => {
-        setCurrentIndex((prevIndex) => (prevIndex - 1 + 4) % 4);
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + (postsNumber - 1)) % (postsNumber - 1));
     };
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % 5);
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % postsNumber);
         }, 2500);
 
         return () => clearInterval(interval);
@@ -31,7 +33,7 @@ const BlogCarousel = ({ posts }) => {
         <div className="flex h-full transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
-            {posts.slice(0, 5).map((post, index) => (
+            {posts.slice(0, postsNumber).map((post, index) => (
                 <div key={index} className="w-full flex-shrink-0 flex justify-center items-center relative">
                     <img src={post.imgsLand[0]} className="w-full object-cover" />
                     <Link href={`/${post._id}`} className="absolute w-full left-0 flex items-center justify-between p-6 bottom-10 text-white">
@@ -69,7 +71,7 @@ const BlogCarousel = ({ posts }) => {
 
         {/* <div className="absolute right-0 bottom-0 " /> */}
         <div className="flex gap-[-6px] text-4xl absolute left-2 bottom-2 text-white p-2 bg-black/40 rounded-full">
-            {[...Array(5)].map((x, i) =>
+            {[...Array(postsNumber)].map((x, i) =>
                 <button onClick={() => setCurrentIndex(i)}>
                     {currentIndex === i ? <GoDotFill /> : <GoDot />}
                 </button>

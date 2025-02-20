@@ -19,7 +19,7 @@ const PostCard = ({post}) => {
                 </div>
                 <div className='absolute top-2 left-2 flex flex-wrap w-10 gap-1'>
                   {post.categories.map((element) => (
-                    <div className='bg-light-highlight text-dark-text py-1 px-2 rounded-full text-sm'>
+                    <div className='bg-light-highlight dark:bg-dark-highlight text-dark-text py-1 px-2 rounded-full text-sm'>
                     {element}
                     </div>
                   ))}
