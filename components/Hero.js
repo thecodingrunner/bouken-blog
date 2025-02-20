@@ -56,20 +56,17 @@ const Hero = () => {
     >
       <div 
         // variants={slideIn("left", "tween", 0, 1.5)}
-        className="z-10 h-[90vh] aspect-square rounded-full dark:bg-dark-highlight bg-light-highlight absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 dark:glow"
+        className="z-10 sm:h-[90vh] h-[60vh] relative aspect-square rounded-full dark:bg-dark-highlight bg-light-highlight top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 dark:glow"
       >
+        <span className="text-[5rem] sm:text-[8rem] lg:text-[10rem] absolute bottom-1/2 translate-y-14 left-1/2 -translate-x-1/2 lg:left-0 lg:-translate-x-52">
+          <span className="dark:text-dark-text text-light-text">BO</span>
+          <span className="dark:text-light-text text-dark-text">UKEN</span>
+        </span>
       </div>
-      <div 
-        // variants={textVariant(0)}
-        className="text-[8rem] font-semibold z-20 absolute top-1/2 left-1/2 -translate-x-[505px] -translate-y-[140px]"
-      >
-        <span className="dark:text-dark-text text-light-text">BO</span>
-        <span className="dark:text-light-text text-dark-text">UKEN</span>
-      </div>
-      <div className="italic absolute z-20 left-1/2 top-1/2 -translate-x-1/2 translate-y-[50px] text-dark-text text-4xl">
+      <div className="italic text-center absolute z-20 left-1/2 top-1/2 -translate-x-1/2 translate-y-[50px] text-dark-text text-4xl">
         A site for exploration
       </div>
-      <div className="vertical-text text-[8rem] font-semibold absolute right-48 bottom-16 z-10">
+      <div className="vertical-text text-[5rem] sm:text-[8rem] font-semibold absolute right-0 lg:right-48 bottom-16 z-10">
         冒険
       </div>
       {/* <motion.div

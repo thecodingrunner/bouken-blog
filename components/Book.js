@@ -72,7 +72,7 @@ const Book = () => {
         </div>
 
         <button 
-            className='rounded-full dark:bg-dark-highlight text-dark-text bg-light-highlight text-5xl apple-box fixed bottom-3 right-3 p-2' 
+            className='rounded-full dark:bg-dark-highlight text-dark-text bg-light-highlight text-5xl apple-box fixed bottom-3 right-3 p-2 z-40' 
             onClick={() => setTranslate(prev => !prev)}
         >
             <MdOutlineTranslate />

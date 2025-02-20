@@ -66,7 +66,7 @@ const Header = () => {
       transition={{ duration: 0.3, ease: "easeInOut" }}
       className="fixed top-0 left-0 h-48 w-full transition-all z-30"
     >
-      <div className={`md:hidden absolute left-0 flex flex-col items-center w-full py-8 italic gap-4 bg-white text-red text-lg transition-all ease-in-out duration-500 z-30 ${displayMenu ? 'top-0' : '-top-[200%]'}`}>
+      <div className={`sm:hidden absolute left-0 flex flex-col items-center w-full py-8 italic gap-4 bg-white text-red text-lg transition-all ease-in-out duration-500 z-30 ${displayMenu ? 'top-0' : '-top-[200%]'}`}>
         <Link href='#Book'>Book</Link>
         <Link href='#Drawings'>Drawings</Link>
         <Link href='/all'>Blog</Link>
@@ -96,7 +96,7 @@ const Header = () => {
               </div>
           )}
       </div>
-      <motion.div variants={slideIn('down', 'tween', 0, 1.75)} className={`${isHomePage ? "md:bg-transparent dark:bg-dark-background bg-light-background p-10" : "dark:bg-dark-background bg-light-background"} flex justify-between items-center md:p-12 z-20 w-full`}>
+      <motion.div variants={slideIn('down', 'tween', 0, 1.75)} className={`${isHomePage ? "sm:bg-transparent dark:bg-dark-background bg-light-background p-10" : "dark:bg-dark-background bg-light-background"} flex justify-between items-center md:p-12 z-20 w-full`}>
         
         <Link href={'/'} className="ml-4 relative left-0 font-medium text-4xl tracking-tight translate-x-12">
             <div className="relative">
