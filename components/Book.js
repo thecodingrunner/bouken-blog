@@ -11,18 +11,20 @@ const Book = () => {
     const [info, setInfo] = useState(false);
 
   return (
-    <section className="flex flex-col gap-8 h-screen w-screen dark:text-dark-text text-light-text px-20 justify-center" id='Book'>
+    <section className="flex flex-col gap-2 h-screen w-screen dark:text-dark-text text-light-text px-8 sm:px-20 justify-center" id='Book'>
         {/* <h2 className="text-[7rem] font-semibold pl-6">A Foreigner's Traverse</h2> */}
-        <div className='flex gap-10 justify-center items-center'>
-                <h2 className={`${translate ? "text-[3rem] max-w-[20rem]" : "text-[8rem] vertical-text"} w-auto font-semibold text-center`}>
-                {translate == true ?
-                    "A Foreigner's Traverse"
-                :
-                    "外人縦断"
-                }
-            </h2>
-            <div className='w-auto px-10 shrink-0'>
-                <img src={cover.src} className='dark:dark-red-shadow light-red-shadow h-[550px]'></img>
+        <div className='flex xl:flex-row flex-col gap-2 justify-center items-center'>
+            <div className={`flex justify-center items-center ${translate ? "flex-col gap-8 sm:flex-row sm:gap-2" : "flex-row gap-2"}`}>
+                <h2 className={`${translate ? "text-[3rem] max-w-[20rem]" : "text-[5rem] sm:text-[8rem] vertical-text"} w-auto font-semibold text-center`}>
+                    {translate == true ?
+                        "A Foreigner's Traverse"
+                    :
+                        "外人縦断"
+                    }
+                </h2>
+                <div className='w-auto px-2 sm:px-10 shrink-0'>
+                    <img src={cover.src} className='dark:dark-red-shadow light-red-shadow h-[450px] sm:h-[550px]'></img>
+                </div>
             </div>
             <div
                 className={`mt-5 transition-all duration-500 ease-in-out transform ${
@@ -32,7 +34,7 @@ const Book = () => {
                 }`}
             >
                 <div className={`${info ? "min-w-[400px] opacity-100" : "w-0 h-0 opacity-0"} flex flex-col gap-6 flex-1 justify-between items-start shrink-0 dark:bg-dark-background`}>
-                    <p className={`${translate ? "text-xl text-justify" : "text-2xl"}`}>
+                    <p className={`${translate ? "text-xl text-justify xl:w-[400px] w-[70vw]" : "text-2xl xl:w-[400px] w-[70vw]"}`}>
                         {translate == true ? 
                             "What happens when a 22 year old british kid attempts to cycle the length of Japan on a whim? Will the Japanese he studied be enough? Will he be surprised by the culture differences? Will he come to love Japan, or will he come to hate it? What will he discover about himself through this adventure? All of these doubts and questions are answered through an exciting journal written by that kid himself."
                         : 
@@ -63,7 +65,7 @@ const Book = () => {
             </div>
             {info != true && (
                 <button 
-                    className='w-10 h-10 rounded-full dark:bg-dark-highlight text-dark-text bg-light-highlight text-xl flex justify-center items-center' 
+                    className='w-10 h-10 rounded-full dark:bg-dark-highlight text-dark-text bg-light-highlight text-xl flex justify-center items-center shrink-0' 
                     onClick={() => setInfo(prev => !prev)}
                 >
                     <FaInfo />
