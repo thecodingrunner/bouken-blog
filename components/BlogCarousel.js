@@ -29,7 +29,7 @@ const BlogCarousel = ({ posts }) => {
     },[currentIndex])
 
   return (
-    <div className="relative w-[99vw] h-[70vh] overflow-hidden rounded-xl">
+    <div className="hidden lg:block relative w-[99vw] h-[70vh] overflow-hidden rounded-xl ml-3 mr-5">
         <div className="flex h-full transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
