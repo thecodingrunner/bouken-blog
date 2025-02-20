@@ -96,7 +96,7 @@ const Header = () => {
               </div>
           )}
       </div>
-      <motion.div variants={slideIn('down', 'tween', 0, 1.75)} className={`${isHomePage ? "sm:bg-transparent dark:bg-dark-background bg-light-background p-10" : "dark:bg-dark-background bg-light-background"} flex justify-between items-center md:p-12 z-20 w-full`}>
+      <motion.div variants={slideIn('down', 'tween', 0, 1.75)} className={`${isHomePage ? "sm:bg-transparent sm:dark:bg-transparent dark:bg-dark-background bg-light-background p-10" : "dark:bg-dark-background bg-light-background"} flex justify-between items-center md:p-12 z-20 w-full`}>
         
         <Link href={'/'} className="ml-4 relative left-0 font-medium text-4xl tracking-tight translate-x-12">
             <div className="relative">
@@ -111,8 +111,8 @@ const Header = () => {
 
         <div className="flex items-center justify-center gap-6">
           <div className="md:flex gap-6 justify-center items-center hidden dark:text-dark-text text-light-text italic text-lg">
-            <Link href='#Book'>Book</Link>
-            <Link href='#Drawings'>Drawings</Link>
+            <Link href='/#Book'>Book</Link>
+            <Link href='/#Drawings'>Drawings</Link>
             <Link href='/all'>Blog</Link>
           </div>
           {session?.user ? (

@@ -20,8 +20,8 @@ const About = () => {
       >
         <TypingText title="About BOUKEN 冒険" textStyles="text-center text-4xl dark:text-dark-highlight text-light-highlight" />
 
-        <motion.p variants={fadeIn("up", "tween", 0.1, 1)} className='mt-3 z-10 text-[30px] text-center dark:text-dark-text text-light-text italic'>
-          Welcome to BOUKEN, the travel blog of my adventures across Japan. In 2023 I bikepacked the length of Japan, and visited many fascinating places, before living in Tokyo for 4 months.
+        <motion.p variants={fadeIn("up", "tween", 0.1, 1)} className='mt-3 z-10 text-[34px] text-center dark:text-dark-text text-light-text italic'>
+        Bouken is the Japanese word for adventure. This website is dedicated to both my Japanese adventures, and my self exploration through several creative forms. 
         </motion.p>
         {/* StrikeSense Pro */}
       </motion.div>

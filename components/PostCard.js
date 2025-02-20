@@ -17,8 +17,12 @@ const PostCard = ({post}) => {
                     <img src={post.imgsLand[0]} className='object-cover' onerror="this.src=post.imgsLand[-1]" />
                   )}
                 </div>
-                <div className='absolute top-2 left-2 bg-light-highlight text-dark-text py-1 px-2 rounded-full text-sm'>
-                  {post.categories[0]}
+                <div className='absolute top-2 left-2 flex flex-wrap w-10 gap-1'>
+                  {post.categories.map((element) => (
+                    <div className='bg-light-highlight text-dark-text py-1 px-2 rounded-full text-sm'>
+                    {element}
+                    </div>
+                  ))}
                 </div>
                 <div className='p-4'>
                   <h2 className='text-2xl font-semibold'>{post.title}</h2>

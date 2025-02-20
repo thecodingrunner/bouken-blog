@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaChevronLeft } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa";
@@ -33,7 +34,7 @@ const BlogCarousel = ({ posts }) => {
             {posts.slice(0, 5).map((post, index) => (
                 <div key={index} className="w-full flex-shrink-0 flex justify-center items-center relative">
                     <img src={post.imgsLand[0]} className="w-full object-cover" />
-                    <div className="absolute w-full left-0 flex items-center justify-between p-6 bottom-10 text-white">
+                    <Link href={`/${post._id}`} className="absolute w-full left-0 flex items-center justify-between p-6 bottom-10 text-white">
                         <div className="flex items-start flex-col p-3 rounded-2xl bg-black/40">
                             <div className="text-sm py-2 px-3 bg-dark-highlight rounded-full mb-3">{post.categories[0]}</div>
                             <h2 className="text-3xl font-semibold">{post.title}</h2>
@@ -48,7 +49,7 @@ const BlogCarousel = ({ posts }) => {
                             </div>
                         </div>
 
-                    </div>
+                    </Link>
                 </div>
             ))}
         </div>
@@ -67,7 +68,7 @@ const BlogCarousel = ({ posts }) => {
         </button> */}
 
         {/* <div className="absolute right-0 bottom-0 " /> */}
-        <div className="flex gap-[3px] text-4xl absolute left-2 bottom-2 text-white">
+        <div className="flex gap-[-6px] text-4xl absolute left-2 bottom-2 text-white p-2 bg-black/40 rounded-full">
             {[...Array(5)].map((x, i) =>
                 <button onClick={() => setCurrentIndex(i)}>
                     {currentIndex === i ? <GoDotFill /> : <GoDot />}

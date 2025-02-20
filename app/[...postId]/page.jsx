@@ -44,6 +44,9 @@ const page = (pageProps) => {
     <section className='pb-10 dark:bg-dark-background bg-light-background'>
     {blogPost && (
         <>
+        <div className='h-[90vh] absolute top-0 left-0 w-full overflow-hidden flex items-center z-0'>
+            <img src={blogPost.imgsLand[0]} className='object-cover h-full w-full z-0' />
+        </div>
         <main className='relative w-[90vw] sm:w-3/4 mx-auto py-20 px-10 flex flex-col mt-[50vh] gap-2 items-center justify-center bg-light-background text-light-text shadow-lg'>
             <h1 className='text-5xl font-semibold mb-6'>{blogPost.title}</h1>
             <div className='flex gap-4 items-center'>
@@ -57,7 +60,7 @@ const page = (pageProps) => {
                     <button className='btn bg-red-600 text-white' onClick={deletePost}>Delete Post</button>
                 </div>
             )}
-            <p className='text-lg sm:text-2xl leading-10 mb-6' dangerouslySetInnerHTML={{__html: blogPost.postContent}}></p>
+            <p className='text-lg sm:text-2xl leading-10 mb-6 z-10' dangerouslySetInnerHTML={{__html: blogPost.postContent}}></p>
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3'>
                 {blogPost.imgsLand.map((img, index) => (
                     <button onClick={() => setView(img)} className='h-[30vh] overflow-hidden' key={index}>
@@ -94,9 +97,6 @@ const page = (pageProps) => {
                 </div>
             )}
         </main>
-        <div className='h-[90vh] absolute top-0 left-0 w-full overflow-hidden flex items-center z-0'>
-            <img src={blogPost.imgsLand[0]} className='object-cover h-full w-full z-0' />
-        </div>
         </>
     )}
     </section>
