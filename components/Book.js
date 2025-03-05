@@ -23,7 +23,7 @@ const Book = () => {
                     }
                 </h2>
                 <div className='w-auto px-2 sm:px-10 shrink-0'>
-                    <img src={cover.src} className='dark:dark-red-shadow light-red-shadow h-[450px] sm:h-[550px]'></img>
+                    <img src={cover.src} className='dark:dark-red-shadow light-red-shadow h-[300px] sm:h-[550px]'></img>
                 </div>
             </div>
             <div
@@ -34,7 +34,7 @@ const Book = () => {
                 }`}
             >
                 <div className={`${info ? "min-w-[400px] opacity-100" : "w-0 h-0 opacity-0"} flex flex-col gap-6 flex-1 justify-between items-start shrink-0 dark:bg-dark-background`}>
-                    <p className={`${translate ? "text-xl text-justify xl:w-[400px] w-[70vw]" : "text-2xl xl:w-[400px] w-[70vw]"}`}>
+                    <p className={`${translate ? "text-xl text-justify xl:w-[400px] w-[90vw] sm:w-[70vw]" : "text-2xl xl:w-[400px] w-[90vw] sm:w-[70vw]"}`}>
                         {translate == true ? 
                             "What happens when a 22 year old british kid attempts to cycle the length of Japan on a whim? Will the Japanese he studied be enough? Will he be surprised by the culture differences? Will he come to love Japan, or will he come to hate it? What will he discover about himself through this adventure? All of these doubts and questions are answered through an exciting journal written by that kid himself."
                         : 

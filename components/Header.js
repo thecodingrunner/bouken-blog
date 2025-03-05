@@ -66,7 +66,7 @@ const Header = () => {
       transition={{ duration: 0.3, ease: "easeInOut" }}
       className="fixed top-0 left-0 h-48 w-full transition-all z-30"
     >
-      <div className={`sm:hidden absolute left-0 flex flex-col items-center w-full py-8 italic gap-4 bg-white text-red text-lg transition-all ease-in-out duration-500 z-30 ${displayMenu ? 'top-0' : '-top-[200%]'}`}>
+      <div className={`sm:hidden absolute left-0 flex flex-col items-center w-full py-8 italic gap-4 bg-white dark:bg-dark-background text-red text-lg transition-all ease-in-out duration-500 z-30 ${displayMenu ? 'top-0' : '-top-[200%]'}`}>
         <Link href='#Book'>Book</Link>
         <Link href='#Drawings'>Drawings</Link>
         <Link href='/all'>Blog</Link>
