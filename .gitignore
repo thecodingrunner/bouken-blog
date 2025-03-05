@@ -41,3 +41,6 @@ next-env.d.ts
 compose.yaml
 /compose.yaml
 
+.env.production
+
+Dockerfile

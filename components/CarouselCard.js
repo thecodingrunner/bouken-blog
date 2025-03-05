@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { fadeIn, slideIn, staggerContainer, textVariant, textVariantCarousel } from "@/utils/motion";
 import Link from "next/link";
 
-const CarouselCard = ({ card }) => {
+const CarouselCard = ({ card, index }) => {
   const [isHovering, setIsHovering] = useState(false);
 
   function handleMouseOver() {
@@ -18,14 +18,20 @@ const CarouselCard = ({ card }) => {
 
   console.log(card);
   return (
-    <>
+    <Link href={`/${card._id}`}>
       {card.imgsPort && (
         <motion.div
-          className="w-[60vw] sm:w-[50vw] md:w-[30vw] h-[90vh] overflow-hidden shrink-0 relative"
+          className="w-[60vw] sm:w-[50vw] md:w-[30vw] overflow-hidden shrink-0 relative"
           onMouseOver={handleMouseOver}
           onMouseOut={handleMouseOut}
         >
-          {isHovering && (
+          <div className="flex flex-col items-start ml-4 my-4 font-semibold">
+            <p className="mb-10 text-xl">.0{index + 1}</p>
+            <p className="mb-2">{card.title}</p>
+            <p>{card.date}</p>
+          </div>
+
+          {/* {isHovering && (
             <motion.div
               variants={textVariantCarousel(0.6)}
               initial="hidden"
@@ -34,14 +40,17 @@ const CarouselCard = ({ card }) => {
             >
               <Link href={`/${card._id}`} className="text-white text-3xl opacity-100">{card.title}</Link>
             </motion.div>
-          )}
-          <motion.img
-            src={card.imgsPort[0]}
-            className="object-cover w-full h-full hover:scale-[1.02] transition ease-in-out duration-300"
-          />
+          )} */}
+          <div className="overflow-hidden">
+            <motion.img
+              src={card.imgsLand[0]}
+              className="object-cover w-full h-full hover:scale-[1.02] transition ease-in-out duration-300"
+            />
+          </div>
+
         </motion.div>
       )}
-    </>
+    </Link>
   );
 };
 

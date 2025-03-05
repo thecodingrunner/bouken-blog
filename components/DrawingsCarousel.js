@@ -16,14 +16,16 @@ const DrawingsCarousel = () => {
 
     const nextSlide = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % totalImages);
+        setExpandedIndex(null);
     };
 
     const prevSlide = () => {
         setCurrentIndex((prevIndex) => (prevIndex - 1 + totalImages) % totalImages);
+        setExpandedIndex(null);
     };
 
     return (
-        <div className="relative w-screen h-screen flex items-center justify-center overflow-hidden py-10" id="Drawings">
+        <div className="hidden relative w-screen h-screen sm:flex items-center justify-center overflow-hidden py-10" id="Drawings">
             <div className="relative w-[80%] flex justify-center items-center h-full overflow-hidden">
                 {imgs.map((img, index) => {
                     let position = (index - currentIndex + totalImages) % totalImages;
@@ -37,6 +39,7 @@ const DrawingsCarousel = () => {
                             if (position === 0) {
                                 setExpandedIndex(expandedIndex === index ? null : index);
                             } else {
+                                setExpandedIndex(null);
                                 setCurrentIndex(index)
                             }
                             }} 

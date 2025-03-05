@@ -1,18 +1,9 @@
 "use client";
 
 import { useSession } from "next-auth/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import {
-  getStorage,
-  ref,
-  uploadBytesResumable,
-  getDownloadURL,
-} from "firebase/storage";
-import { app } from "@/utils/firebase";
-import { Carter_One } from "next/font/google";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 

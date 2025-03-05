@@ -5,6 +5,8 @@ import React, { useEffect, useState } from 'react'
 import { motion, useTransform, useScroll } from 'framer-motion'
 import { useRef } from 'react'
 import CarouselCard from './CarouselCard'
+import Link from 'next/link'
+import { MdKeyboardArrowRight } from "react-icons/md";
 
 const Carousel = () => {
     const carouselRef = useRef(null);
@@ -24,20 +26,24 @@ const Carousel = () => {
   },[])
 
   return ( 
-    <>
-        {cards && (
-        <section className='w-screen h-screen overflow-hidden mx-auto'>
-            {/* <div ref={carouselRef} className='flex overflow-x-auto scroll-smooth no-scrollbar'>
-                <div className='w-[30vw] h-[90vh] back-red shrink-0 text-gray flex flex-col gap-4 items-center justify-center'>
-                    <h1 className='text-3xl md:text-6xl text-center'>Featured Posts</h1>
-                </div>
-                {cards.map((card) => {
-                return <CarouselCard card={card} key={card._id} />
-                })}
-            </div> */}
-        </section>
-        )}
-    </>
+    <section className='h-screen w-screen hidden md:flex flex-col relative overflow-hidden my-10'>
+      {cards && (
+      <section className='w-full mx-auto h-[50vh]'>
+          <div ref={carouselRef} className='flex overflow-x-auto scroll-smooth no-scrollbar'>
+              {cards.map((card, index) => {
+              return <CarouselCard card={card} key={card._id} index={index} />
+              })}
+          </div>
+      </section>
+      )}
+      <div className='absolute bottom-0 left-4 flex justify-center items-end gap-8'>
+        <h1 className='text-[7rem] md:text-[9rem] text-center italic'>Bouken Blog</h1>
+        <Link className='text-xl pb-8 flex justify-center items-center' href={`/all`}>
+          <span>Read</span>
+          <MdKeyboardArrowRight className='text-4xl' />
+        </Link>
+      </div>
+    </section>
   )
 }
 
