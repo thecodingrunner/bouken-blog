@@ -23,10 +23,15 @@ This full-stack project leverages Next.js to implement a comprehensive blog plat
 
 <p></p>
 
-![bouken markup](https://github.com/thecodingrunner/bouken-blog/assets/22331070/fc24cb99-e30c-4580-b881-45c20e64052d)
-![bouken-2](https://github.com/thecodingrunner/bouken-blog/assets/22331070/55eb7f1a-4448-47c6-8468-e555ac7da685)
-![bouken-1](https://github.com/thecodingrunner/bouken-blog/assets/22331070/b87bd4de-b002-405c-b212-cfd93f12e845)
-![bouken-3](https://github.com/thecodingrunner/bouken-blog/assets/22331070/c6888277-9d5e-46ca-b9cb-db0fa48fd1d1)
-![bouken-4](https://github.com/thecodingrunner/bouken-blog/assets/22331070/32b73b4f-a5a9-4b1f-868e-e456319d3b1b)
-![bouken-5](https://github.com/thecodingrunner/bouken-blog/assets/22331070/4ac825ee-17bd-49e0-a7e2-bc8e96495440)
+![bouken-new-mockup](https://github.com/user-attachments/assets/7adb60c8-e793-4b5a-8f96-17e83e1cb6c5)
+![bouken-new-1](https://github.com/user-attachments/assets/5cd9a4fb-f659-43c7-a5c3-ee0ff73a6a3c)
+![bouken-new-2](https://github.com/user-attachments/assets/93b09ed9-99d9-45cc-9316-26a8e14e4b58)
+![bouken-new-3](https://github.com/user-attachments/assets/4db025e4-0591-47e6-9850-368ed52ba9ac)
+![bouken-new-4](https://github.com/user-attachments/assets/42cf6a8b-bb21-42a9-94c3-0dd013b3bd46)
+![bouken-new-5](https://github.com/user-attachments/assets/3a32033a-ec1f-4d7c-8b81-069ba38080be)
+![bouken-new-6](https://github.com/user-attachments/assets/350c9488-0b07-41ce-9914-24a695d8a826)
+![bouken-new-7](https://github.com/user-attachments/assets/aff1206a-aaf5-4f6b-9a55-95361f01daec)
+![bouken-new-8](https://github.com/user-attachments/assets/df30a111-b60f-491a-a704-caf72354514f)
+![bouken-new-9](https://github.com/user-attachments/assets/2c709e09-efb9-4a1f-b969-12999edf8ea4)
+![bouken-new-10](https://github.com/user-attachments/assets/713d5fc3-580d-4a19-8073-004226c47630)
 
